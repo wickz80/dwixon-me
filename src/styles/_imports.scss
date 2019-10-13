@@ -1,0 +1,8 @@
+// Variables must be loaded first
+@import "./_variables.scss";
+
+// Bootstrap
+@import "bootstrap/scss/bootstrap.scss";
+
+// Site styles
+@import "./common.scss";
