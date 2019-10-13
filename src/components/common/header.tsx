@@ -27,13 +27,13 @@ const Header: React.FunctionComponent<HeaderProps> = props => (
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link to="/" className="nav-link" activeClassName="active">
-                Home
+              <Link to="/about" className="nav-link" activeClassName="active">
+                about
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/page2" className="nav-link" activeClassName="active">
-                Second page
+              <Link to="/archive" className="nav-link" activeClassName="active">
+                archive
               </Link>
             </li>
           </ul>

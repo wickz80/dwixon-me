@@ -1,7 +1,6 @@
 import { useStaticQuery, graphql } from "gatsby"
 import * as React from "react"
 import "../../styles/_imports.scss"
-import Footer from "../common/footer"
 import Header from "../common/header"
 
 interface SiteTitleQueryResult {
@@ -34,8 +33,6 @@ const Layout: React.FunctionComponent = ({ children }) => {
           <main className="pt-4">{children}</main>
         </div>
       </div>
-
-      <Footer />
     </div>
   )
 }

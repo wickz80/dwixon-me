@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Typescript Boilerplate`,
-    description: `Gatsby Typescript Boilerplate`,
-    author: `Kjetil Haugland`,
+    title: `brave new world`,
+    description: `musings about code, automotive, philosophy, music ...`,
+    author: `dave`,
     siteUrl: `https://www.example.com` // CHANGE ME! Used for sitemap
   },
   plugins: [
