@@ -18,6 +18,26 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1000,
+              sizeByPixelDensity: true,
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Gatsby Typescript Boilerplate`,
