@@ -18,7 +18,7 @@ interface ArticleProps {
   }
 }
 
-export default ({data}: ArticleProps) => {
+export default ({ data }: ArticleProps) => {
   const { markdownRemark } = data // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark
   return (
@@ -27,19 +27,20 @@ export default ({data}: ArticleProps) => {
       <div className="blog-post">
         <h1>{frontmatter.title}</h1>
         <h5>{new Date(frontmatter.date).toLocaleDateString(
-          "en-US", 
-          { 
-            weekday: "long", 
-            year: "numeric", 
-            month: "long", 
-            day: "numeric" }
-          )}
+          "en-US",
+          {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+          }
+        )}
         </h5>
         <br />
         <div
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: html }}
-          />
+        />
       </div>
     </Layout>
   )

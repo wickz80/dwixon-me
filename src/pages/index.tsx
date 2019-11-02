@@ -42,33 +42,34 @@ export interface FeaturedArticleProps {
   }
 }
 
-const IndexPage: React.FunctionComponent<FeaturedArticleProps> = ({data}) => {
+const IndexPage: React.FunctionComponent<FeaturedArticleProps> = ({ data }) => {
   const { edges } = data.allMarkdownRemark
   const article = edges[0].node
   return (
 
     <Layout>
-    <SEO title="home" />
+      <SEO title="home" />
 
-    <div className="blog-post">
+      <div className="blog-post">
         <h1>{article.frontmatter.title}</h1>
         <h5>{new Date(article.frontmatter.date).toLocaleDateString(
-          "en-US", 
-          { 
-            weekday: "long", 
-            year: "numeric", 
-            month: "long", 
-            day: "numeric" }
-          )}
+          "en-US",
+          {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+          }
+        )}
         </h5>
         <br />
         <div
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: article.html }}
-          />
+        />
       </div>
-  </Layout>
-          )
+    </Layout>
+  )
 }
 
 export default IndexPage

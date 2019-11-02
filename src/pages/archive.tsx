@@ -40,7 +40,7 @@ export interface ArchiveProps {
   }
 }
 
-const Archive: React.FunctionComponent<ArchiveProps> = ({data}: ArchiveProps) => (
+const Archive: React.FunctionComponent<ArchiveProps> = ({ data }: ArchiveProps) => (
   <Layout>
     <SEO title="archive" />
     {data.allMarkdownRemark.edges.map(article => (

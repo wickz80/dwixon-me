@@ -1,4 +1,6 @@
 const path = require(`path`)
+const webpack = require('webpack')
+
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
   const result = await graphql(`
@@ -24,5 +26,36 @@ exports.createPages = async ({ actions, graphql }) => {
       path: node.frontmatter.path,
       component: path.resolve(`src/templates/article.tsx`),
     })
+  })
+}
+
+
+exports.onCreateWebpackConfig = ({ stage, rules, loaders, plugins, actions }) => {
+  if (stage === 'build-html') {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: require.resolve('bootstrap'),
+            use: loaders.null()
+          },
+          {
+            test: require.resolve('jquery'),
+            use: loaders.null()
+          }
+        ]
+      }
+    })
+  }
+  actions.setWebpackConfig({
+    plugins: [
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery',
+        Popper: 'popper.js',
+        Bootstrap: 'bootstrap.js'
+      })
+    ]
   })
 }
