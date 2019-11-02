@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `brave new world`,
+    title: `home`,
     description: `musings about code, automotive, philosophy, music ...`,
     author: `dave`,
-    siteUrl: `https://www.example.com` // CHANGE ME! Used for sitemap
+    siteUrl: `https://www.dwixon.me` // CHANGE ME! Used for sitemap
   },
   plugins: [
     // `gatsby-plugin-react-helmet`,
@@ -24,7 +24,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1000,
+              maxWidth: 800,
               sizeByPixelDensity: true,
             },
           },

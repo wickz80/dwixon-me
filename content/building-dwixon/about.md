@@ -1,7 +1,7 @@
 ---
-title: Building Brave New World
+title: Building dwixon.me
 date: 2019-10-14
-path: /building-bnw
+path: /building-dwixon
 ---
 This website was built with GatsbyJS, which is a bundler of sorts for all sorts of javascript frameworks.
 

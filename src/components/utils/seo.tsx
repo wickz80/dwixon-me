@@ -49,7 +49,7 @@ const SEO: React.FunctionComponent<SEOProps> = props => {
     <Helmet
       htmlAttributes={{ lang }}
       title={props.title}
-      titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+      titleTemplate={`%s | dwixon.me`}
       meta={[
         {
           name: `description`,
