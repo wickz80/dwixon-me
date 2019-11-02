@@ -3,6 +3,7 @@ import * as React from "react"
 import Layout from "../components/layouts/layout"
 import SEO from "../components/utils/seo"
 import { graphql } from "gatsby";
+import LongDate from "../components/utils/long-date";
 
 export const queryArticles = graphql`
   query FeaturedArticleQuery {
@@ -52,16 +53,7 @@ const IndexPage: React.FunctionComponent<FeaturedArticleProps> = ({ data }) => {
 
       <div className="blog-post">
         <h1>{article.frontmatter.title}</h1>
-        <h5>{new Date(article.frontmatter.date).toLocaleDateString(
-          "en-US",
-          {
-            weekday: "long",
-            year: "numeric",
-            month: "long",
-            day: "numeric"
-          }
-        )}
-        </h5>
+        <LongDate date={article.frontmatter.date} />
         <br />
         <div
           className="blog-post-content"

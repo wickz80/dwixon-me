@@ -46,6 +46,7 @@ const SEO: React.FunctionComponent<SEOProps> = props => {
   const meta = props.meta || []
 
   return (
+    // tslint:disable-next-line
     <Helmet
       htmlAttributes={{ lang }}
       title={props.title}

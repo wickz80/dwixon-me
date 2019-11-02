@@ -1,4 +1,5 @@
 import * as React from "react"
+import LongDate from "../utils/long-date";
 
 interface ArticleProps {
   article: {
@@ -16,23 +17,7 @@ const ArticleTitle: React.FunctionComponent<ArticleProps> = (data) => (
     >
       <h4>{data.article.title}</h4>
     </a>
-
-    <h6
-      style={{
-        paddingLeft: "10px"
-      }}
-    >
-      {new Date(data.article.date).toLocaleDateString(
-        "en-US",
-        {
-          weekday: "long",
-          year: "numeric",
-          month: "long",
-          day: "numeric"
-        }
-      )}
-    </h6>
-
+    <LongDate date={data.article.date} />
     <br />
   </div>
 )

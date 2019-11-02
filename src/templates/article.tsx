@@ -4,6 +4,7 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layouts/layout";
 import SEO from "../components/utils/seo";
+import LongDate from "../components/utils/long-date";
 
 interface ArticleProps {
   data: {
@@ -26,16 +27,7 @@ export default ({ data }: ArticleProps) => {
       <SEO title={frontmatter.title} />
       <div className="blog-post">
         <h1>{frontmatter.title}</h1>
-        <h5>{new Date(frontmatter.date).toLocaleDateString(
-          "en-US",
-          {
-            weekday: "long",
-            year: "numeric",
-            month: "long",
-            day: "numeric"
-          }
-        )}
-        </h5>
+        <LongDate date={frontmatter.date} />
         <br />
         <div
           className="blog-post-content"
