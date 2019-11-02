@@ -48,11 +48,19 @@ const IndexPage: React.FunctionComponent<FeaturedArticleProps> = ({data}) => {
   return (
 
     <Layout>
-    <SEO title="brave new world" />
+    <SEO title="home" />
 
     <div className="blog-post">
         <h1>{article.frontmatter.title}</h1>
-        <h5>{new Date(article.frontmatter.date).toLocaleDateString()}</h5>
+        <h5>{new Date(article.frontmatter.date).toLocaleDateString(
+          "en-US", 
+          { 
+            weekday: "long", 
+            year: "numeric", 
+            month: "long", 
+            day: "numeric" }
+          )}
+        </h5>
         <br />
         <div
           className="blog-post-content"
