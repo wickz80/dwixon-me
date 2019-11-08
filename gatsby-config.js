@@ -24,18 +24,18 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 800,
-              sizeByPixelDensity: true,
-            },
-          },
-        ],
-      },
+              maxWidth: 600,
+              sizeByPixelDensity: true
+            }
+          }
+        ]
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content`,
-      },
+        path: `${__dirname}/content`
+      }
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -46,7 +46,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `standalone`,
-        icon: 'src/images/icon/favicon-32x32.png'
+        icon: "src/images/icon/favicon-32x32.png"
       }
     },
     `gatsby-plugin-sass`,

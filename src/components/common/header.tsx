@@ -1,5 +1,6 @@
 import { Link } from "gatsby"
 import * as React from "react"
+import "./styles.scss"
 
 interface HeaderProps {
   siteTitle: string
@@ -11,7 +12,7 @@ const Header: React.FunctionComponent<HeaderProps> = props => (
     <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light" id="main-nav">
       <div className="container">
         <Link to="/" className="navbar-brand">
           {props.siteTitle}
