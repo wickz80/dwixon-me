@@ -1,21 +1,10 @@
-<h1 align="center">
-  Gatsby Typescript Boilerplate
-</h1>
+## dwixon.me
 
-## Features
+Personal blog, built on GatsbyJS. Converts MD to HTML and serves static pages. React, TypeScript, nodejs, webpack
 
-- Gatsby
-- Typescript
-- TSLint
-- Prettier
-- SASS
-- Bootstrap
+#### To Do
 
-## Setup
-
-- Clone this repo, then:
-
-  ```sh
-  cd gatsby-typescript-boilerplate/
-  npm run develop
-  ```
+- React mix-ins with Markdown
+- Figure out a better way to display images
+- Build CloudFormation and automate the deploy pipeline
+- Write tests ...

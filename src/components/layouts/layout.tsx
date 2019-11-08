@@ -3,7 +3,6 @@ import "../../styles/_imports.scss"
 import Header from "../common/header"
 
 const Layout: React.FunctionComponent = ({ children }) => {
-
   return (
     <div className="site-container">
       <Header />

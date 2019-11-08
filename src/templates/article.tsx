@@ -1,4 +1,3 @@
-
 import * as React from "react"
 
 import { graphql } from "gatsby"
@@ -11,10 +10,10 @@ interface ArticleProps {
     markdownRemark: {
       html: string
       frontmatter: {
-        date: string,
-        path: string,
-        title: string,
-        author: string,
+        date: string
+        path: string
+        title: string
+        author: string
       }
     }
   }
@@ -28,15 +27,9 @@ export default ({ data }: ArticleProps) => {
       <SEO title={frontmatter.title} />
       <div className="blog-post">
         <h1>{frontmatter.title}</h1>
-        <ArticleSubtitle
-          author={frontmatter.author}
-          date={frontmatter.date}
-        />
+        <ArticleSubtitle author={frontmatter.author} date={frontmatter.date} />
         <br />
-        <div
-          className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
+        <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </Layout>
   )

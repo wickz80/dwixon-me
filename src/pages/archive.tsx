@@ -30,10 +30,10 @@ export interface ArchiveProps {
           node: {
             id: string
             frontmatter: {
-              date: string,
-              path: string,
-              title: string,
-              author: string,
+              date: string
+              path: string
+              title: string
+              author: string
             }
           }
         }

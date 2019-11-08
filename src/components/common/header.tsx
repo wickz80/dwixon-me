@@ -9,10 +9,7 @@ const Header: React.FunctionComponent = () => (
   <header>
     <nav className="navbar navbar-expand-lg navbar-light bg-light" id="main-nav">
       <div className="container">
-        <img
-          src={logo}
-          className="navbar-icon"
-        />
+        <img src={logo} className="navbar-icon" />
         <Favicon />
 
         <ul className="navbar-nav">
@@ -22,7 +19,7 @@ const Header: React.FunctionComponent = () => (
         </ul>
       </div>
     </nav>
-  </header >
+  </header>
 )
 
 export default Header

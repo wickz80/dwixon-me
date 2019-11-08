@@ -6,7 +6,7 @@ import { ArticleSubtitle } from "../components/common/article-subtitle"
 
 export const queryArticles = graphql`
   query FeaturedArticleQuery {
-    allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}, limit: 1) {
+    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }, limit: 1) {
       edges {
         node {
           id
@@ -32,10 +32,10 @@ export interface FeaturedArticleProps {
             id: string
             html: string
             frontmatter: {
-              date: string,
-              path: string,
-              title: string,
-              author: string,
+              date: string
+              path: string
+              title: string
+              author: string
             }
           }
         }
@@ -48,21 +48,14 @@ const IndexPage: React.FunctionComponent<FeaturedArticleProps> = ({ data }) => {
   const { edges } = data.allMarkdownRemark
   const article = edges[0].node
   return (
-
     <Layout>
       <SEO title="home" />
 
       <div className="blog-post">
         <h1>{article.frontmatter.title}</h1>
-        <ArticleSubtitle
-          author={article.frontmatter.author}
-          date={article.frontmatter.date}
-        />
+        <ArticleSubtitle author={article.frontmatter.author} date={article.frontmatter.date} />
         <br />
-        <div
-          className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: article.html }}
-        />
+        <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: article.html }} />
       </div>
     </Layout>
   )

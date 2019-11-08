@@ -7,7 +7,7 @@ interface Props {
 }
 
 export const ArticleSubtitle = (props: Props) => (
-  <p className="article-metadata" >
+  <p className="article-metadata">
     <strong>{LongDate(props.date)}</strong>
     <i>
       {" by "}
