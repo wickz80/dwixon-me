@@ -1,8 +1,8 @@
 import * as React from "react"
 import Layout from "../components/layouts/layout"
-import ArticleTitle from "../components/common/article-title";
-import { graphql } from "gatsby";
-import SEO from "../components/utils/seo";
+import ArticleTitle from "../components/common/article-title"
+import { graphql } from "gatsby"
+import SEO from "../components/utils/seo"
 
 export const queryArticles = graphql`
   query MyQuery {
@@ -14,6 +14,7 @@ export const queryArticles = graphql`
             date
             path
             title
+            author
           }
         }
       }
@@ -31,7 +32,8 @@ export interface ArchiveProps {
             frontmatter: {
               date: string,
               path: string,
-              title: string
+              title: string,
+              author: string,
             }
           }
         }
@@ -44,7 +46,7 @@ const Archive: React.FunctionComponent<ArchiveProps> = ({ data }: ArchiveProps) 
   <Layout>
     <SEO title="archive" />
     {data.allMarkdownRemark.edges.map(article => (
-      <ArticleTitle article={article.node.frontmatter} key={article.node.id} />
+      <ArticleTitle {...article.node.frontmatter} key={article.node.id} />
     ))}
   </Layout>
 )

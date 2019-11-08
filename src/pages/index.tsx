@@ -1,9 +1,8 @@
 import * as React from "react"
-
 import Layout from "../components/layouts/layout"
 import SEO from "../components/utils/seo"
-import { graphql } from "gatsby";
-import LongDate from "../components/utils/long-date";
+import { graphql } from "gatsby"
+import { ArticleSubtitle } from "../components/common/article-subtitle"
 
 export const queryArticles = graphql`
   query FeaturedArticleQuery {
@@ -16,6 +15,7 @@ export const queryArticles = graphql`
             date
             path
             title
+            author
           }
         }
       }
@@ -34,7 +34,8 @@ export interface FeaturedArticleProps {
             frontmatter: {
               date: string,
               path: string,
-              title: string
+              title: string,
+              author: string,
             }
           }
         }
@@ -53,7 +54,10 @@ const IndexPage: React.FunctionComponent<FeaturedArticleProps> = ({ data }) => {
 
       <div className="blog-post">
         <h1>{article.frontmatter.title}</h1>
-        <LongDate date={article.frontmatter.date} />
+        <ArticleSubtitle
+          author={article.frontmatter.author}
+          date={article.frontmatter.date}
+        />
         <br />
         <div
           className="blog-post-content"

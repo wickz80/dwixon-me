@@ -15,7 +15,14 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "baseUrl": "src",
+    "paths": {
+      "@images/*": ["components/images/*"],
+      "@icon/*": ["components/images/icon/*"],
+      "@src/*": ["/*"]
+    }
   },
   "include": ["./src/**/*"]
 }

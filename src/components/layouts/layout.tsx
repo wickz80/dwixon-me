@@ -26,7 +26,7 @@ const Layout: React.FunctionComponent = ({ children }) => {
 
   return (
     <div className="site-container">
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header />
 
       <div className="content-wrap">
         <div className="container">

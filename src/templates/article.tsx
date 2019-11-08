@@ -2,9 +2,9 @@
 import * as React from "react"
 
 import { graphql } from "gatsby"
-import Layout from "../components/layouts/layout";
-import SEO from "../components/utils/seo";
-import LongDate from "../components/utils/long-date";
+import Layout from "../components/layouts/layout"
+import SEO from "../components/utils/seo"
+import { ArticleSubtitle } from "../components/common/article-subtitle"
 
 interface ArticleProps {
   data: {
@@ -13,7 +13,8 @@ interface ArticleProps {
       frontmatter: {
         date: string,
         path: string,
-        title: string
+        title: string,
+        author: string,
       }
     }
   }
@@ -27,7 +28,10 @@ export default ({ data }: ArticleProps) => {
       <SEO title={frontmatter.title} />
       <div className="blog-post">
         <h1>{frontmatter.title}</h1>
-        <LongDate date={frontmatter.date} />
+        <ArticleSubtitle
+          author={frontmatter.author}
+          date={frontmatter.date}
+        />
         <br />
         <div
           className="blog-post-content"
@@ -46,6 +50,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
+        author
       }
     }
   }

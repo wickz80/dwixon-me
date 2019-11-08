@@ -2,6 +2,7 @@
 title: about Dave
 date: 2019-10-13
 path: /about
+author: Dave Wixon
 ---
 
 Dave is a full-stack developer, tinkerer, caffeine enthusiast, and car nut from the Midwest. He also thinks it's weird to write a bio page in the third person.

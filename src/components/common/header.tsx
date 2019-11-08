@@ -1,51 +1,28 @@
-import { Link } from "gatsby"
 import * as React from "react"
 import "./styles.scss"
+import { Favicon } from "./favicon"
+import { NavItem } from "./nav-item"
 
-interface HeaderProps {
-  siteTitle: string
-}
-
-const Header: React.FunctionComponent<HeaderProps> = props => (
+const Header: React.FunctionComponent = () => (
   <header>
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/icon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/icon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
     <nav className="navbar navbar-expand-lg navbar-light bg-light" id="main-nav">
       <div className="container">
-        <Link to="/" className="navbar-brand">
-          {props.siteTitle}
-        </Link>
+        <img
+          src={"./android-chrome-192x192.png"}
+          className="navbar-icon"
+        />
+        <Favicon />
 
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon" />
-        </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link to="/about" className="nav-link" activeClassName="active">
-                about
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/archive" className="nav-link" activeClassName="active">
-                archive
-              </Link>
-            </li>
+            <NavItem path="/" name="home" />
+            <NavItem path="/about" name="about" />
+            <NavItem path="/archive" name="archive" />
           </ul>
         </div>
       </div>
     </nav>
-  </header>
+  </header >
 )
 
 export default Header

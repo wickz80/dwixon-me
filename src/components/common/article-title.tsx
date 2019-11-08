@@ -1,23 +1,25 @@
 import * as React from "react"
-import LongDate from "../utils/long-date";
+import { ArticleSubtitle } from "./article-subtitle";
 
 interface ArticleProps {
-  article: {
-    date: string,
-    path: string,
-    title: string,
-  }
+  date: string,
+  path: string,
+  title: string,
+  author: string,
 }
 
-const ArticleTitle: React.FunctionComponent<ArticleProps> = (data) => (
+export const ArticleTitle: React.FunctionComponent<ArticleProps> = (props: ArticleProps) => (
   <div>
     <a
       style={{ color: "black" }}
-      href={data.article.path}
+      href={props.path}
     >
-      <h4>{data.article.title}</h4>
+      <h4>{props.title}</h4>
     </a>
-    <LongDate date={data.article.date} />
+    <ArticleSubtitle
+      author={props.author}
+      date={props.date}
+    />
     <br />
   </div>
 )
