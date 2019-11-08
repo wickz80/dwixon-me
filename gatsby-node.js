@@ -37,10 +37,6 @@ exports.onCreateWebpackConfig = ({ stage, rules, loaders, plugins, actions }) =>
           {
             test: require.resolve("bootstrap"),
             use: loaders.null()
-          },
-          {
-            test: require.resolve("jquery"),
-            use: loaders.null()
           }
         ]
       }
@@ -55,9 +51,7 @@ exports.onCreateWebpackConfig = ({ stage, rules, loaders, plugins, actions }) =>
         Popper: "popper.js",
         Bootstrap: "bootstrap.js"
       })
-    ]
-  })
-  actions.setWebpackConfig({
+    ],
     resolve: {
       alias: {
         src: path.resolve(__dirname, "src")
