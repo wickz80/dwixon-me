@@ -13,13 +13,11 @@ const Header: React.FunctionComponent = () => (
         />
         <Favicon />
 
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <NavItem path="/" name="home" />
-            <NavItem path="/about" name="about" />
-            <NavItem path="/archive" name="archive" />
-          </ul>
-        </div>
+        <ul className="navbar-nav">
+          <NavItem path="/" name="home" />
+          <NavItem path="/about" name="about" />
+          <NavItem path="/archive" name="archive" />
+        </ul>
       </div>
     </nav>
   </header >
