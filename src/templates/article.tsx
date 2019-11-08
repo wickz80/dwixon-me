@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layouts/layout"
 import SEO from "../components/utils/seo"
 import { ArticleSubtitle } from "../components/common/article-subtitle"
+import { ArticleTitle } from "../components/common/article-title"
 
 interface ArticleProps {
   data: {
@@ -26,7 +27,7 @@ export default ({ data }: ArticleProps) => {
     <Layout>
       <SEO title={frontmatter.title} />
       <div className="blog-post">
-        <h1>{frontmatter.title}</h1>
+        <ArticleTitle title={frontmatter.title} />
         <ArticleSubtitle author={frontmatter.author} date={frontmatter.date} />
         <br />
         <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: html }} />

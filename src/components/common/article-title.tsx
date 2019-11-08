@@ -1,21 +1,12 @@
-import * as React from "react"
-import { ArticleSubtitle } from "./article-subtitle"
+import React from "react"
 
-interface ArticleProps {
-  date: string
-  path: string
-  title: string
-  author: string
-}
+export const ArticleTitle = (props: { title: string }) => (
+  <h1 style={{
+    fontWeight: 550,
+    textTransform: "lowercase",
+    fontFamily: "'Futura PT',-apple-system,'BlinkMacSystemFont','Segoe UI'"
+  }}>
+    {props.title}
 
-export const ArticleTitle: React.FunctionComponent<ArticleProps> = (props: ArticleProps) => (
-  <div>
-    <a style={{ color: "black" }} href={props.path}>
-      <h4>{props.title}</h4>
-    </a>
-    <ArticleSubtitle author={props.author} date={props.date} />
-    <br />
-  </div>
+  </h1>
 )
-
-export default ArticleTitle
