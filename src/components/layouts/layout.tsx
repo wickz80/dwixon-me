@@ -1,6 +1,8 @@
 import * as React from "react"
 import "../../styles/_imports.scss"
 import Header from "../common/header"
+import "./styles.scss"
+import { Sidebar } from "../../components/common/sidebar"
 
 const Layout: React.FunctionComponent = ({ children }) => {
   return (
@@ -8,8 +10,19 @@ const Layout: React.FunctionComponent = ({ children }) => {
       <Header />
 
       <div className="content-wrap">
+
         <div className="container">
-          <main className="pt-4">{children}</main>
+          <div className="row">
+
+            <div className="col-md-3" id="sidebar-container">
+              <Sidebar />
+            </div>
+            <div className="col-md-9">
+              <main className="article-container">
+                {children}
+              </main>
+            </div>
+          </div>
         </div>
       </div>
     </div>

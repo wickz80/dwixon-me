@@ -10,7 +10,14 @@ interface ArticleProps {
 
 export const ArticleListItem: React.FunctionComponent<ArticleProps> = (props: ArticleProps) => (
   <div>
-    <a style={{ color: "black" }} href={props.path}>
+    <a
+      style={{
+        color: "black",
+        fontFamily: `"Futura PT", -apple-system, BlinkMacSystemFont, "Segoe UI"`,
+        fontSize: "14px"
+      }}
+      href={props.path}
+    >
       <h4>{props.title}</h4>
     </a>
     <ArticleSubtitle author={props.author} date={props.date} />

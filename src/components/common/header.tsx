@@ -12,7 +12,9 @@ const Header: React.FunctionComponent = () => (
         <img src={logo} className="navbar-icon" />
         <Favicon />
 
-        <ul className="navbar-nav">
+        <ul className="navbar-nav" style={{
+          marginLeft: "50px"
+        }}>
           <NavItem path="/" name="home" />
           <NavItem path="/about" name="about" />
           <NavItem path="/archive" name="archive" />

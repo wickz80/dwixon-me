@@ -1,5 +1,6 @@
 #main-nav {
-  background: linear-gradient(#eaedffa3, #b6b6b6);
+  // background: linear-gradient(#eaedffa3, #b6b6b6);
+  background: #f8f9fa;
 }
 
 .gatsby-resp-image-background-image {
@@ -11,8 +12,14 @@
 }
 
 .container {
-  padding-left: 50px !important;
+  margin-left: 5px;
+  padding: 0px;
   flex-direction: row-reverse;
+}
+
+#sidebar-container {
+  padding-left: 0px;
+  padding-bottom: 10px;
 }
 
 .navbar-icon {
@@ -29,7 +36,18 @@
   font-style: normal;
   letter-spacing: 0.5px;
   padding-left: 10px;
+  // color: rgb(112, 112, 112);
+  color: #6364ca;
+}
+
+.sidebar-title {
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  letter-spacing: 0.5px;
+  padding-left: 10px;
   color: rgb(112, 112, 112);
+  text-transform: lowercase;
 }
 
 .blog-post-content {
@@ -41,9 +59,25 @@ body {
 }
 
 .content-wrap {
-  background: linear-gradient(#ffffff, #e0e0e0);
+  background: linear-gradient(#dbdbdb, #e0e0e0);
+  padding-top: 1rem;
+  padding-bottom: 20px;
 }
 
 .site-container {
   background: #e0e0e0;
+}
+
+.sidebar-main {
+  background: #f8f9fa;
+  border-radius: 0px 5px 5px 0px;
+  height: calc(100%);
+  padding: 10px;
+  margin: 0px;
+}
+
+.nav-link:hover {
+  transition: border-top-width 0.1s linear, margin-top 0.1s linear;
+  border-top: solid 3px #6364ca;
+  margin-top: -3px;
 }
