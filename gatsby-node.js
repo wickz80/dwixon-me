@@ -4,13 +4,17 @@ const webpack = require("webpack")
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
   const result = await graphql(`
-    {
-      allMarkdownRemark {
+    query {
+      allMdx {
         edges {
           node {
             frontmatter {
+              title
               path
+              date(formatString: "MMMM DD, YYYY")
+              author
             }
+            body
           }
         }
       }
@@ -19,12 +23,11 @@ exports.createPages = async ({ actions, graphql }) => {
   if (result.errors) {
     console.error(result.errors)
   }
-
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    console.log(node)
+  result.data.allMdx.edges.forEach(({ node }) => {
     createPage({
       path: node.frontmatter.path,
-      component: path.resolve(`src/templates/article.tsx`)
+      component: path.resolve(`src/templates/article.tsx`),
+      context: node,
     })
   })
 }

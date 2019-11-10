@@ -21,7 +21,7 @@ export const ArticleListItem: React.FunctionComponent<ArticleProps> = (props: Ar
       <h4>{props.title}</h4>
     </a>
     <ArticleSubtitle author={props.author} date={props.date} />
-    <br />
+      <hr />
   </div>
 )
 

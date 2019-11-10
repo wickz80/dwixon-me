@@ -1,28 +1,25 @@
 import * as React from "react"
-
-import { graphql } from "gatsby"
 import Layout from "../components/layouts/layout"
 import SEO from "../components/utils/seo"
 import { ArticleSubtitle } from "../components/common/article-subtitle"
 import { ArticleTitle } from "../components/common/article-title"
+import { MDXRenderer } from "gatsby-plugin-mdx";
+
 
 interface ArticleProps {
-  data: {
-    markdownRemark: {
-      html: string
+  pageContext: {
       frontmatter: {
         date: string
         path: string
         title: string
         author: string
       }
+      body: string
     }
   }
-}
 
-export default ({ data }: ArticleProps) => {
-  const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { frontmatter, html } = markdownRemark
+export default ({ pageContext }: ArticleProps) => {
+  const { frontmatter } = pageContext // data.mdx holds your post data
   return (
     <Layout>
       <SEO title={frontmatter.title} />
@@ -30,22 +27,10 @@ export default ({ data }: ArticleProps) => {
         <ArticleTitle title={frontmatter.title} />
         <ArticleSubtitle author={frontmatter.author} date={frontmatter.date} />
         <br />
-        <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: html }} />
       </div>
+      <MDXRenderer >
+        {pageContext.body}
+      </MDXRenderer>
     </Layout>
   )
 }
-
-export const pageQuery = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        path
-        title
-        author
-      }
-    }
-  }
-`

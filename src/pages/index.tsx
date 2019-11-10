@@ -4,14 +4,15 @@ import SEO from "../components/utils/seo"
 import { graphql } from "gatsby"
 import { ArticleSubtitle } from "../components/common/article-subtitle"
 import { ArticleTitle } from "../components/common/article-title"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 export const queryArticles = graphql`
   query FeaturedArticleQuery {
-    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }, limit: 1) {
+    allMdx(sort: { fields: frontmatter___date, order: DESC }, limit: 1) {
       edges {
         node {
           id
-          html
+          body
           frontmatter {
             date
             path
@@ -25,13 +26,14 @@ export const queryArticles = graphql`
 `
 
 export interface FeaturedArticleProps {
+  children: any
   data: {
-    allMarkdownRemark: {
+    allMdx: {
       edges: [
         {
           node: {
             id: string
-            html: string
+            body: string
             frontmatter: {
               date: string
               path: string
@@ -46,18 +48,20 @@ export interface FeaturedArticleProps {
 }
 
 const IndexPage: React.FunctionComponent<FeaturedArticleProps> = ({ data }) => {
-  const { edges } = data.allMarkdownRemark
+  const { edges } = data.allMdx
   const article = edges[0].node
+  const { frontmatter } = article;
   return (
     <Layout>
-      <SEO title="home" />
-
+      <SEO title={frontmatter.title} />
       <div className="blog-post">
-        <ArticleTitle title={article.frontmatter.title} />
-        <ArticleSubtitle author={article.frontmatter.author} date={article.frontmatter.date} />
+        <ArticleTitle title={frontmatter.title} />
+        <ArticleSubtitle author={frontmatter.author} date={frontmatter.date} />
         <br />
-        <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: article.html }} />
       </div>
+      <MDXRenderer >
+        {article.body}
+      </MDXRenderer>
     </Layout>
   )
 }

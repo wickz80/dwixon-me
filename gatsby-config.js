@@ -26,23 +26,16 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 600,
-              sizeByPixelDensity: true
-            }
-          }
-        ]
+        extensions: [`.mdx`, `.md`],
       }
     },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content`
+        path: `${__dirname}/src/posts`
       }
     },
     {

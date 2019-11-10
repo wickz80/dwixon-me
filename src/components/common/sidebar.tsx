@@ -26,7 +26,7 @@ export const Sidebar: React.FunctionComponent = () => (
 
         <StaticQuery query={
           graphql`query SidebarQuery {
-          allMarkdownRemark {
+          allMdx {
             edges {
               node {
                 id
@@ -43,7 +43,7 @@ export const Sidebar: React.FunctionComponent = () => (
         `}
           render={props =>
             <div>
-              {props.allMarkdownRemark.edges.map((article: Article) =>
+              {props.allMdx.edges.map((article: Article) =>
                 <SidebarListItem {...article.node.frontmatter} key={article.node.id} />
               )}
             </div>

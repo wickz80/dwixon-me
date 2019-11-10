@@ -6,7 +6,7 @@ import SEO from "../components/utils/seo"
 
 export const queryArticles = graphql`
   query MyQuery {
-    allMarkdownRemark {
+    allMdx {
       edges {
         node {
           id
@@ -24,7 +24,7 @@ export const queryArticles = graphql`
 
 export interface ArchiveProps {
   data: {
-    allMarkdownRemark: {
+    allMdx: {
       edges: [
         {
           node: {
@@ -45,8 +45,8 @@ export interface ArchiveProps {
 const Archive: React.FunctionComponent<ArchiveProps> = ({ data }: ArchiveProps) => (
   <Layout>
     <SEO title="archive" />
-    {data.allMarkdownRemark.edges.map(article => (
-      <ArticleListItem {...article.node.frontmatter} key={article.node.id} />
+    {data.allMdx.edges.map(article => (
+        <ArticleListItem {...article.node.frontmatter} key={article.node.id} />
     ))}
   </Layout>
 )
