@@ -20,7 +20,7 @@ export const Sidebar: React.FunctionComponent = () => (
 
       <strong>You might also like...</strong>
       <div style={{
-        paddingTop: "1rem"
+        paddingTop: "1rem",
       }}
       >
 

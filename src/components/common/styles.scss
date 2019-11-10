@@ -81,3 +81,19 @@ body {
   border-top: solid 3px #6364ca;
   margin-top: -3px;
 }
+
+.sidebar-item {
+  border-bottom: 1px solid white;
+  padding-top: 15px;
+  margin-top: 0.5rem;
+  margin-right: 15px;
+  background: #7473c72e;
+  margin-left: -10px;
+  border-radius: 0px 5px 5px 0px;
+  border-left: 2px solid darkgray;
+}
+
+.sidebar-item:hover {
+  transition: margin-right 0.1s linear;
+  margin-right: 12px;
+}
