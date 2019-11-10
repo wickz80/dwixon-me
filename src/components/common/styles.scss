@@ -1,6 +1,11 @@
 #main-nav {
   // background: linear-gradient(#eaedffa3, #b6b6b6);
   background: #f8f9fa;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
 }
 
 .gatsby-resp-image-background-image {
@@ -60,7 +65,7 @@ body {
 
 .content-wrap {
   background: linear-gradient(#dbdbdb, #e0e0e0);
-  padding-top: 1rem;
+  padding-top: 4.6rem;
   padding-bottom: 20px;
 }
 

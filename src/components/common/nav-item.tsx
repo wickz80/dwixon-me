@@ -7,7 +7,9 @@ interface Props {
 }
 
 export const NavItem = (props: Props) => (
-  <li className="nav-item">
+  <li className="nav-item" style={{
+    padding: "0px 5px 0px 5px"
+  }}>
     <Link to={props.path} className="nav-link" activeClassName="active">
       {props.name}
     </Link>
