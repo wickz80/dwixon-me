@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Link } from "gatsby"
 
 interface ArticleProps {
   date: string
@@ -9,14 +10,16 @@ interface ArticleProps {
 
 export const SidebarListItem: React.FunctionComponent<ArticleProps> = (props: ArticleProps) => (
   <div className="sidebar-item">
-    <a style={{ color: "rgba(0,0,0,.7" }} href={props.path}>
+    <Link to={props.path} style={{
+      color: "rgba(0,0,0,0.7)"
+    }}>
       <h6
         style={{
           paddingLeft: "1rem",
           marginBottom: ".3rem"
         }}
       ><strong>{props.title}</strong></h6>
-    </a>
+    </Link>
     <p
       style={{
         paddingLeft: "1.9rem",
