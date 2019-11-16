@@ -19,6 +19,7 @@ const Header: React.FunctionComponent = () => (
           <NavItem path="/" name="home" />
           <NavItem path="/about" name="about" />
           <NavItem path="/archive" name="archive" />
+          <NavItem path="/spotify" name="spotify" />
         </ul>
       </div>
     </nav>

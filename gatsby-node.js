@@ -27,8 +27,14 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: node.frontmatter.path,
       component: path.resolve(`src/templates/article.tsx`),
-      context: node,
+      context: node
     })
+  })
+
+  // make the spotify page
+  createPage({
+    path: "/spotify",
+    component: path.resolve(`src/pages/album-art.tsx`)
   })
 }
 

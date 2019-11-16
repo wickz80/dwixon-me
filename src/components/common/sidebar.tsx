@@ -16,7 +16,7 @@ export interface Article {
 
 export const Sidebar: React.FunctionComponent = () => (
   <div className="sidebar-main">
-    <p className="sidebar-title">
+    <div className="sidebar-title">
 
       <strong>You might also like...</strong>
       <div style={{
@@ -50,6 +50,6 @@ export const Sidebar: React.FunctionComponent = () => (
           }
         />
       </div>
-    </p>
+    </div>
   </div>
 )
