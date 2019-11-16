@@ -2,15 +2,11 @@ import * as React from "react"
 import Layout from "../components/layouts/layout"
 import SEO from "../components/utils/seo"
 import { SpotifyAuth } from "./album-art/spotify-auth"
-// playlist ID as input
+import SpotifyWebApi from "spotify-web-api-js"
+import { Playlists } from "./album-art/playlists"
 
-// (auth)
-// fetch songs 
-
-// fetch album art for X songs
-
-// tile album art with some level of interaction
-
+// todo get typings
+// const SpotifyWebApi = require("spotify-web-api-js")
 
 interface Props {
   location?: any
@@ -19,35 +15,51 @@ interface Props {
 interface State {
   authorizationLink?: string
   token?: string;
+  playlists?: SpotifyApi.ListOfUsersPlaylistsResponse
 }
 
 class AlbumArt extends React.Component<Props, State> {
-  public constructor() {
-    super({})
+  private spotify: SpotifyWebApi.SpotifyWebApiJs
+
+  public constructor(props: Props) {
+    super(props)
     this.state = {}
+    this.spotify = new SpotifyWebApi()
   }
+
   public componentDidMount() {
+    console.log("current page", this.props.location.href)
     const s = new SpotifyAuth()
     const token = s.Token(this.props.location.href)
     if (!token) {
       s.Authorize((url: string) => { console.log("authorize: ", url); this.setState({ authorizationLink: url }) },
         this.props.location.href
       )
+      return
     }
-    console.log("current page", this.props.location.href)
     console.log("TOKEN: ", token)
+
+    this.spotify.setAccessToken(token)
+    this.spotify.getUserPlaylists().then(
+      playlists => this.setState({ playlists }),
+      () => console.log("Failed to retrieve user playlists")
+    )
+
   }
 
   public render() {
     return (
-      <Layout>
+      <Layout noMainContent={true}>
         <SEO title="album art generator" />
-        <h2>this is spotify</h2>
-
         {this.state.authorizationLink ?
           <a href={this.state.authorizationLink}>
             <p>Authorize with Spotify</p>
           </a>
+          : null
+        }
+
+        {this.state.playlists ?
+          <Playlists playlists={this.state.playlists} spotify={this.spotify} />
           : null
         }
       </Layout>

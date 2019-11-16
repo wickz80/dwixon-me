@@ -1,6 +1,6 @@
 import { clientId, clientSecret } from "./credentials"
 
-export class Spotify {
+export class SpotifyAuth {
   public Authorize(callback: (url: string) => void, redirect: string) {
     const endpoint = "https://accounts.spotify.com/authorize?"
     const params = new URLSearchParams()

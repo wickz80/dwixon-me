@@ -4,7 +4,11 @@ import Header from "../common/header"
 import "./styles.scss"
 import { Sidebar } from "../../components/common/sidebar"
 
-const Layout: React.FunctionComponent = ({ children }) => {
+interface Props {
+  noMainContent?: boolean
+}
+
+const Layout: React.FunctionComponent<Props> = ({ children, noMainContent }) => {
   return (
     <div className="site-container">
       <Header />
@@ -12,17 +16,20 @@ const Layout: React.FunctionComponent = ({ children }) => {
       <div className="content-wrap">
 
         <div className="container">
-          <div className="row">
-
-            <div className="col-md-3" id="sidebar-container">
-              <Sidebar />
+          {noMainContent ?
+            children
+            :
+            <div className="row">
+              <div className="col-md-3" id="sidebar-container">
+                <Sidebar />
+              </div>
+              <div className="col-md-9">
+                <main className="article-container">
+                  {children}
+                </main>
+              </div>
             </div>
-            <div className="col-md-9">
-              <main className="article-container">
-                {children}
-              </main>
-            </div>
-          </div>
+          }
         </div>
       </div>
     </div>
