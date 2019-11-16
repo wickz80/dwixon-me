@@ -1,8 +1,7 @@
 import * as React from "react"
 import Layout from "../components/layouts/layout"
 import SEO from "../components/utils/seo"
-import { Spotify } from "./album-art/spotify"
-import { forEach } from "async"
+import { SpotifyAuth } from "./album-art/spotify-auth"
 // playlist ID as input
 
 // (auth)
@@ -17,15 +16,26 @@ interface Props {
   location?: any
 }
 
-class AlbumArt extends React.Component<Props> {
-  componentDidMount() {
-    if (this.props) {
-      console.log(this.props.location.href)
-      const params = new URLSearchParams(this.props.location.href.split("?")[1])
-      console.log(params.get("code"))
+interface State {
+  authorizationLink?: string
+  token?: string;
+}
+
+class AlbumArt extends React.Component<Props, State> {
+  public constructor() {
+    super({})
+    this.state = {}
+  }
+  public componentDidMount() {
+    const s = new SpotifyAuth()
+    const token = s.Token(this.props.location.href)
+    if (!token) {
+      s.Authorize((url: string) => { console.log("authorize: ", url); this.setState({ authorizationLink: url }) },
+        this.props.location.href
+      )
     }
-    const s = new Spotify()
-    s.Authorize()
+    console.log("current page", this.props.location.href)
+    console.log("TOKEN: ", token)
   }
 
   public render() {
@@ -33,6 +43,13 @@ class AlbumArt extends React.Component<Props> {
       <Layout>
         <SEO title="album art generator" />
         <h2>this is spotify</h2>
+
+        {this.state.authorizationLink ?
+          <a href={this.state.authorizationLink}>
+            <p>Authorize with Spotify</p>
+          </a>
+          : null
+        }
       </Layout>
     )
   }
