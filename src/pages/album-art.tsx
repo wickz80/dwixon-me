@@ -18,7 +18,7 @@ interface State {
   playlists?: SpotifyApi.ListOfUsersPlaylistsResponse
   selectedPlaylist?: SpotifyApi.SinglePlaylistResponse
   selectedOptionId?: string
-  album: SpotifyApi.AlbumObjectFull
+  album?: SpotifyApi.AlbumObjectFull
 }
 
 class AlbumArt extends React.Component<Props, State> {

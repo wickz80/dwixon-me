@@ -17,13 +17,17 @@
 }
 
 .container {
-  margin-left: 5px;
   padding: 0px;
   flex-direction: row-reverse;
 }
 
 .container.nomax {
   max-width: unset !important;
+  padding: 0.1rem;
+}
+
+.row {
+  margin: 0px;
 }
 
 #sidebar-container {

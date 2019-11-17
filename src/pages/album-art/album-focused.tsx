@@ -33,16 +33,23 @@ export class AlbumFocused extends React.Component<Props, State> {
         onRequestClose={this.props.close}
         style={{
           overlay: {
-            zIndex: "10"
+            zIndex: "10",
+            maxWidth: "99vw",
+          },
+          content: {
+            left: "10px",
+            right: "10px",
+            bottom: "unset"
+
           }
         }}
       >
         <div className="row">
 
-          <div className="album-focused art">
+          <div className="col-12 col-md-6 album-focused art">
             <img src={this.props.track.album.images[0].url} />
           </div>
-          <div className="album-focused tracklist">
+          <div className="col-12 col-md-6 album-focused tracklist">
             {this.state.album && <>
               <h4>{this.state.album.name}</h4>
               {this.state.album.tracks.items.map(track => <p>{track.name}</p>)}

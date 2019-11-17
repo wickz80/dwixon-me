@@ -1,8 +1,8 @@
 .album {
   background: white;
   border-radius: 0.3rem;
-  margin: 0.2rem;
-  border: 4px solid white;
+  margin: 0.1rem;
+  border: 1px solid white;
   position: relative;
   color: black !important;
 }
@@ -25,10 +25,32 @@
 }
 
 .album-image {
-  max-width: 12rem;
-  max-height: 12rem;
   border-radius: 0.3rem;
   display: block;
+}
+
+@media only screen and (min-width: 200px) {
+  .album-image {
+    max-width: calc(90vw);
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .album-image {
+    max-width: calc(95vw / 3);
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .album-image {
+    max-width: calc(95vw / 4);
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .album-image {
+    max-width: calc(95vw / 6);
+  }
 }
 
 .track-info {
@@ -42,17 +64,23 @@
   opacity: 0;
   transition: 0.5s ease;
   background-color: #f8f9fa;
-  padding: 0.3rem;
   font-size: small;
   display: table;
 }
 
 .album:hover .track-info {
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 .track-info-data {
   text-align: center;
   display: table-cell;
   vertical-align: middle;
+}
+
+.album-focused.art img {
+  max-width: -webkit-fill-available;
+}
+
+.album-focused.tracklist {
 }
