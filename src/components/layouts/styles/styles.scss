@@ -12,11 +12,6 @@
   margin-left: 0px;
 }
 
-.container.nomax {
-  max-width: unset !important;
-  padding: 0.1rem;
-}
-
 .row {
   margin: 0px;
 }
@@ -41,8 +36,11 @@ body {
 
 .content-wrap {
   background: linear-gradient(#dbdbdb, #e0e0e0);
-  padding-top: 4.6rem;
-  padding-bottom: 20px;
+  padding-top: 6vh;
+  padding-bottom: 0px;
+  .container {
+    padding-top: 1rem;
+  }
 }
 
 .site-container {

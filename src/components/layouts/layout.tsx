@@ -6,14 +6,15 @@ import { Sidebar } from "../nav/sidebar/sidebar"
 
 interface Props {
   noMainContent?: boolean
+  containerClass?: string
 }
 
-const Layout: React.FunctionComponent<Props> = ({ children, noMainContent }) => {
+const Layout: React.FunctionComponent<Props> = ({ children, noMainContent, containerClass }) => {
   return (
     <div className="site-container">
       <TopNav />
       <div className="content-wrap">
-        <div className={noMainContent ? "container nomax" : "container"}>
+        <div className={containerClass ? containerClass : "container"}>
           {noMainContent ? (
             children
           ) : (

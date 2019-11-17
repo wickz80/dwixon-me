@@ -1,10 +1,15 @@
 .album {
-  background: white;
+  background: #000000;
   border-radius: 0.3rem;
-  margin: 0.1rem;
-  border: 1px solid white;
+  margin: 0.5rem;
+  // border: 1px solid white;
   position: relative;
   color: black !important;
+  box-shadow: 3px 3px 8px black;
+}
+
+.album:hover {
+  transform: rotateX(3deg);
 }
 
 .centered-box {
@@ -27,6 +32,7 @@
 .album-image {
   border-radius: 0.3rem;
   display: block;
+  margin-right: 1px;
 }
 
 @media only screen and (min-width: 200px) {
@@ -37,19 +43,19 @@
 
 @media only screen and (min-width: 600px) {
   .album-image {
-    max-width: calc(95vw / 3);
+    max-width: calc(92vw / 3);
   }
 }
 
 @media only screen and (min-width: 1000px) {
   .album-image {
-    max-width: calc(95vw / 4);
+    max-width: calc(92vw / 4);
   }
 }
 
 @media only screen and (min-width: 1400px) {
   .album-image {
-    max-width: calc(95vw / 6);
+    max-width: calc(92vw / 6);
   }
 }
 
@@ -64,8 +70,10 @@
   opacity: 0;
   transition: 0.5s ease;
   background-color: #f8f9fa;
-  font-size: small;
+  font-size: medium;
   display: table;
+  border-radius: 0.3rem;
+  padding: 1rem;
 }
 
 .album:hover .track-info {
@@ -82,5 +90,56 @@
   max-width: -webkit-fill-available;
 }
 
-.album-focused.tracklist {
+.ReactModal__Content {
+  left: 10px !important;
+  right: 10px !important;
+  bottom: unset !important;
+}
+
+@media (max-width: 768px) {
+  .ReactModal__Content {
+    bottom: 10px !important;
+  }
+}
+
+.ReactModal__Overlay {
+  z-index: 10;
+  max-width: 99vw;
+}
+
+.album-info {
+  background: #7473c72e;
+  padding: 1rem;
+  border-radius: 0.2rem;
+  h4 {
+    padding-bottom: 0.5rem;
+  }
+  a {
+    color: black;
+  }
+}
+
+.album-info__track {
+  strong {
+    padding-right: 1rem;
+  }
+  a {
+    text-align: right;
+  }
+}
+
+.album-focused-image {
+  border-radius: 0.2rem;
+}
+
+.container.nomax {
+  max-width: unset !important;
+  perspective: 2px;
+}
+
+.container.nomax.tiled {
+  background: #000000c4;
+}
+
+.content-wrap {
 }
