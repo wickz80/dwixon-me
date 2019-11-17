@@ -18,6 +18,7 @@ interface State {
   playlists?: SpotifyApi.ListOfUsersPlaylistsResponse
   selectedPlaylist?: SpotifyApi.SinglePlaylistResponse
   selectedOptionId?: string
+  album: SpotifyApi.AlbumObjectFull
 }
 
 class AlbumArt extends React.Component<Props, State> {
@@ -60,12 +61,20 @@ class AlbumArt extends React.Component<Props, State> {
               }
               {this.state.playlists && <PlaylistsSelector playlists={this.state.playlists} handleSelection={this.handleSelection} />}
             </CenteredBox>
-            : <Playlist playlist={this.state.selectedPlaylist} />
+            : <Playlist playlist={this.state.selectedPlaylist} getAlbum={this.getAlbum} />
           }
         </div>
       </Layout>
     )
   }
+
+  private getAlbum = (id: string) => {
+    return this.spotify.getAlbum(id).then(
+      resp => resp,
+      () => console.log("Failed to retrieve album info")
+    )
+  }
+
   private getPlaylists = () => {
     this.spotify.setAccessToken(this.state.token!)
     this.spotify.getUserPlaylists().then(

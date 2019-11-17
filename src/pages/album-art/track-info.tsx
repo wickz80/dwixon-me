@@ -10,6 +10,7 @@ export const TrackInfo: React.FunctionComponent<Props> = ({ track }) => (
       <p><strong>track: </strong> {track.name}</p>
       <p><strong>{`artist${track.artists.length === 1 ? "" : "s"}: `}</strong>{mapArtists(track.artists)}</p>
       <p><strong>album: </strong>{track.album.name}</p>
+      <a href={track.uri}>Open in Spotify</a>
     </div>
   </div>
 )

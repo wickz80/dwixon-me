@@ -6,6 +6,7 @@ import { Album } from "./album";
 
 interface Props {
   playlist: SpotifyApi.SinglePlaylistResponse
+  getAlbum: (id: string) => Promise<SpotifyApi.AlbumObjectFull | void>
 }
 
 export class Playlist extends React.Component<Props> {
@@ -14,6 +15,6 @@ export class Playlist extends React.Component<Props> {
   }
 
   public render() {
-    return this.props.playlist.tracks.items.map(item => <Album track={item.track} key={item.track.id} />)
+    return this.props.playlist.tracks.items.map(item => <Album track={item.track} key={item.track.id} getAlbum={this.props.getAlbum} />)
   }
 }
