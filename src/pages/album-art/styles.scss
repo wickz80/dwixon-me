@@ -1,0 +1,51 @@
+.album {
+  background: white;
+  border-radius: 0.3rem;
+  margin: 0.2rem;
+  border: 4px solid white;
+  position: relative;
+  color: black !important;
+}
+
+.react-tooltip-lite {
+  font-size: small;
+  border-radius: 5px;
+  word-wrap: none;
+  p {
+    padding: 0px;
+    margin: 0px;
+  }
+}
+
+.album-image {
+  max-width: 12rem;
+  max-height: 12rem;
+  border-radius: 0.3rem;
+  display: block;
+}
+
+.track-info {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: #f8f9fa;
+  padding: 0.3rem;
+  font-size: small;
+  display: table;
+}
+
+.album:hover .track-info {
+  opacity: 0.9;
+}
+
+.track-info-data {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}

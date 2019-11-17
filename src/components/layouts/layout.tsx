@@ -12,10 +12,8 @@ const Layout: React.FunctionComponent<Props> = ({ children, noMainContent }) => 
   return (
     <div className="site-container">
       <Header />
-
       <div className="content-wrap">
-
-        <div className="container">
+        <div className={noMainContent ? "container nomax" : "container"} >
           {noMainContent ?
             children
             :

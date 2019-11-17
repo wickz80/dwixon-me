@@ -22,6 +22,10 @@
   flex-direction: row-reverse;
 }
 
+.container.nomax {
+  max-width: unset !important;
+}
+
 #sidebar-container {
   padding-left: 0px;
   padding-bottom: 10px;

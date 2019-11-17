@@ -1,4 +1,6 @@
 import * as React from "react"
+import "./styles.scss"
+import { TrackInfo } from "./track-info";
 
 interface Props {
   track: SpotifyApi.TrackObjectFull
@@ -11,18 +13,15 @@ export class Album extends React.Component<Props> {
 
   public render() {
     return (
-      // <div>
-      //   <p>Artist: {this.props.track.artists[0].name}</p>
-      //   <p>Name: {this.props.track.name}</p>
-      //   <p>Album: {this.props.track.album.name}</p>
-      // </div>
-      <img
-        style={{
-          maxWidth: "8rem",
-          maxHeight: "8rem"
-        }}
-        src={this.props.track.album.images[0].url}
-      />
+      <a
+        href={this.props.track.uri}
+        className="album"
+      >
+        <TrackInfo track={this.props.track} />
+        <img className="album-image"
+          src={this.props.track.album.images[0].url}
+        />
+      </a>
     )
   }
 }
