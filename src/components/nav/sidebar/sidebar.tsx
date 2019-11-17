@@ -1,17 +1,18 @@
-import React from "react";
-import { graphql, StaticQuery } from "gatsby";
-import SidebarListItem from "./sidebar-list-item";
+import React from "react"
+import { graphql, StaticQuery } from "gatsby"
+import SidebarListItem from "./sidebar-list-item"
+import "./styles.scss"
 
 export interface Article {
   node: {
-    id: string;
+    id: string
     frontmatter: {
-      date: string;
-      path: string;
-      title: string;
-      author: string;
-    };
-  };
+      date: string
+      path: string
+      title: string
+      author: string
+    }
+  }
 }
 
 export const Sidebar: React.FunctionComponent = () => (
@@ -52,4 +53,4 @@ export const Sidebar: React.FunctionComponent = () => (
       </div>
     </div>
   </div>
-);
+)

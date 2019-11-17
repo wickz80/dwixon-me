@@ -1,11 +1,11 @@
-import * as React from "react";
-import "./styles.scss";
-import { Favicon } from "./favicon";
-import { NavItem } from "../nav/top-nav/nav-item";
+import * as React from "react"
+import "./styles.scss"
+import { Favicon } from "../../common/favicon"
+import { NavItem } from "./nav-item"
 // tslint:disable-next-line
-const logo = require("src/icons/android-chrome-192x192.png");
+const logo = require("src/icons/android-chrome-192x192.png")
 
-const Header: React.FunctionComponent = () => (
+const TopNav: React.FunctionComponent = () => (
   <header>
     <nav className="navbar navbar-light bg-light" id="main-nav">
       <div className="container">
@@ -27,6 +27,6 @@ const Header: React.FunctionComponent = () => (
       </div>
     </nav>
   </header>
-);
+)
 
-export default Header;
+export default TopNav

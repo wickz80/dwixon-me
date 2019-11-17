@@ -1,17 +1,17 @@
-import * as React from "react";
-import "../../styles/_imports.scss";
-import Header from "../common/header";
-import "./styles.scss";
-import { Sidebar } from "../nav/sidebar/sidebar";
+import * as React from "react"
+import "./styles/_imports.scss"
+import TopNav from "../nav/top-nav/top-nav"
+import "./styles/styles.scss"
+import { Sidebar } from "../nav/sidebar/sidebar"
 
 interface Props {
-  noMainContent?: boolean;
+  noMainContent?: boolean
 }
 
 const Layout: React.FunctionComponent<Props> = ({ children, noMainContent }) => {
   return (
     <div className="site-container">
-      <Header />
+      <TopNav />
       <div className="content-wrap">
         <div className={noMainContent ? "container nomax" : "container"}>
           {noMainContent ? (
@@ -29,7 +29,7 @@ const Layout: React.FunctionComponent<Props> = ({ children, noMainContent }) => 
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout
