@@ -1,6 +1,5 @@
 {
   "rulesDirectory": ["tslint-plugin-prettier"],
-  "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
   "rules": {
     "jsx-no-multiline-js": false,
     "jsx-no-lambda": false,
@@ -9,11 +8,14 @@
     "object-literal-sort-keys": false,
 
     "interface-name": false,
-    "semicolon": [true, "never"],
+    "semicolon": false,
     "member-access": [false],
     "ordered-imports": [false],
     "no-console": [false],
     "no-var-requires": true,
-    "quotemark": [true, "double", "jsx-double"]
-  }
+    "quotemark": [true, "double", "jsx-double"],
+    "no-implicit-dependencies": false,
+    "no-submodule-imports": false
+  },
+  "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"]
 }

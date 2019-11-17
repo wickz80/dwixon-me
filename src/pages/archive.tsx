@@ -1,8 +1,8 @@
-import * as React from "react"
-import Layout from "../components/layouts/layout"
-import ArticleListItem from "../components/common/article-list-item"
-import { graphql } from "gatsby"
-import SEO from "../components/utils/seo"
+import * as React from "react";
+import Layout from "../components/layouts/layout";
+import ArticleListItem from "../components/article/article-list-item";
+import { graphql } from "gatsby";
+import SEO from "../components/utils/seo";
 
 export const queryArticles = graphql`
   query MyQuery {
@@ -20,7 +20,7 @@ export const queryArticles = graphql`
       }
     }
   }
-`
+`;
 
 export interface ArchiveProps {
   data: {
@@ -28,27 +28,27 @@ export interface ArchiveProps {
       edges: [
         {
           node: {
-            id: string
+            id: string;
             frontmatter: {
-              date: string
-              path: string
-              title: string
-              author: string
-            }
-          }
+              date: string;
+              path: string;
+              title: string;
+              author: string;
+            };
+          };
         }
-      ]
-    }
-  }
+      ];
+    };
+  };
 }
 
 const Archive: React.FunctionComponent<ArchiveProps> = ({ data }: ArchiveProps) => (
   <Layout>
     <SEO title="archive" />
     {data.allMdx.edges.map(article => (
-        <ArticleListItem {...article.node.frontmatter} key={article.node.id} />
+      <ArticleListItem {...article.node.frontmatter} key={article.node.id} />
     ))}
   </Layout>
-)
+);
 
-export default Archive
+export default Archive;

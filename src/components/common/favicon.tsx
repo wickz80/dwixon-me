@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 
 export const Favicon = () => (
   <div>
@@ -7,4 +7,4 @@ export const Favicon = () => (
     <link rel="icon" type="image/png" sizes="16x16" href="/images/icon/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
   </div>
-)
+);

@@ -1,7 +1,7 @@
-import * as React from "react"
+import * as React from "react";
 
-import Layout from "../components/layouts/layout"
-import SEO from "../components/utils/seo"
+import Layout from "../components/layouts/layout";
+import SEO from "../components/utils/seo";
 
 const NotFoundPage: React.FunctionComponent = () => (
   <Layout>
@@ -10,6 +10,6 @@ const NotFoundPage: React.FunctionComponent = () => (
     <h1>Waat...</h1>
     <p>Page does not exist</p>
   </Layout>
-)
+);
 
-export default NotFoundPage
+export default NotFoundPage;

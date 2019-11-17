@@ -4,6 +4,6 @@ const LongDate = (date: string) =>
     year: "numeric",
     month: "long",
     day: "numeric"
-  })
+  });
 
-export default LongDate
+export default LongDate;

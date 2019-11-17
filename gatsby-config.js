@@ -8,13 +8,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`
-      }
-    },
-    {
       resolve: `gatsby-plugin-s3`,
       options: {
         bucketName: "brave-new-world",
@@ -28,7 +21,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: [`.mdx`, `.md`],
+        extensions: [`.mdx`, `.md`]
       }
     },
 
@@ -47,7 +40,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `standalone`,
-        icon: "src/images/icon/favicon-32x32.png"
+        icon: "src/icons/favicon-32x32.png"
       }
     },
     `gatsby-plugin-sass`,

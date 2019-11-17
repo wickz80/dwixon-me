@@ -17,12 +17,11 @@
     "noFallthroughCasesInSwitch": true,
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "@images/*": ["components/images/*"],
-      "@icon/*": ["components/images/icon/*"],
-      "@src/*": ["/*"]
+      "src/*": ["src/*"]
     }
   },
-  "include": ["./src/**/*"]
+  "include": ["./**/*"],
+  "exclude": ["build", "node_modules"]
 }

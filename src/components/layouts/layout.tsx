@@ -1,11 +1,11 @@
-import * as React from "react"
-import "../../styles/_imports.scss"
-import Header from "../common/header"
-import "./styles.scss"
-import { Sidebar } from "../../components/common/sidebar"
+import * as React from "react";
+import "../../styles/_imports.scss";
+import Header from "../common/header";
+import "./styles.scss";
+import { Sidebar } from "../nav/sidebar/sidebar";
 
 interface Props {
-  noMainContent?: boolean
+  noMainContent?: boolean;
 }
 
 const Layout: React.FunctionComponent<Props> = ({ children, noMainContent }) => {
@@ -13,25 +13,23 @@ const Layout: React.FunctionComponent<Props> = ({ children, noMainContent }) => 
     <div className="site-container">
       <Header />
       <div className="content-wrap">
-        <div className={noMainContent ? "container nomax" : "container"} >
-          {noMainContent ?
+        <div className={noMainContent ? "container nomax" : "container"}>
+          {noMainContent ? (
             children
-            :
+          ) : (
             <div className="row">
               <div className="col-md-3" id="sidebar-container">
                 <Sidebar />
               </div>
               <div className="col-md-9">
-                <main className="article-container">
-                  {children}
-                </main>
+                <main className="article-container">{children}</main>
               </div>
             </div>
-          }
+          )}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
