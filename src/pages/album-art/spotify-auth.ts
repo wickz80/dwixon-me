@@ -1,7 +1,6 @@
-import { clientId, clientSecret } from "./credentials"
-
 export class SpotifyAuth {
-  public Authorize(callback: (url: string) => void, redirect: string) {
+  public Authorize(redirect: string) {
+    const clientId = "26d5ac8cc3fd43eb86455970eec361f2"
     const endpoint = "https://accounts.spotify.com/authorize?"
     const params = new URLSearchParams()
 
@@ -11,7 +10,7 @@ export class SpotifyAuth {
     params.append("redirect_uri", redirect)
     params.append("scope", "playlist-read-collaborative playlist-read-private")
 
-    this.getAuthorization(endpoint + params.toString(), callback)
+    return endpoint + params.toString()
   }
 
   public Token(uri: string) {
@@ -21,15 +20,5 @@ export class SpotifyAuth {
     const hash = uri.split("#")[1]
     const tokenKey = hash.split("&")[0]
     return tokenKey.split("=")[1]
-  }
-
-  private getAuthorization = async (url: string, callback: (url: string) => void) => {
-    const response = await fetch(url, {
-      mode: "cors"
-    }).then(resp => resp, () => console.log("Failure to hit authorization endpoint"))
-
-    if (response) {
-      callback(response.url)
-    }
   }
 }

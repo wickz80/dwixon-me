@@ -4,7 +4,7 @@ import SEO from "../components/utils/seo"
 import { SpotifyAuth } from "./album-art/spotify-auth"
 import SpotifyWebApi from "spotify-web-api-js"
 import { PlaylistsSelector } from "./album-art/playlists-selector"
-import { CenteredBox } from "./album-art/centered-box"
+import { CenteredBox } from "../components/common/centered-box"
 import { Playlist } from "./album-art/playlist"
 
 interface Props {
@@ -35,14 +35,13 @@ class AlbumArt extends React.Component<Props, State> {
     const s = new SpotifyAuth()
     const token = s.Token(this.props.location.href)
     if (token) {
-      this.setState((prev: State) => ({ ...prev, token, authorized: true }),
+      return this.setState((prev: State) => ({ ...prev, token, authorized: true }),
         () => this.getPlaylists()
       )
     }
-    s.Authorize((url: string) => { this.setState({ authorizationLink: url }) },
-      this.props.location.href
-    )
-
+    this.setState({
+      authorizationLink: s.Authorize(this.props.location.href)
+    })
   }
   public render() {
     return (
@@ -50,7 +49,6 @@ class AlbumArt extends React.Component<Props, State> {
         <SEO title="album art generator" />
         <div className="row" style={{
           justifyContent: "center",
-
         }}>
           {!this.state.selectedPlaylist ?
             <CenteredBox>
