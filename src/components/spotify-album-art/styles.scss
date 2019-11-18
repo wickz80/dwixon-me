@@ -179,3 +179,12 @@
   max-width: 5rem;
   margin-bottom: 1rem;
 }
+
+.next-tracks-arrow {
+  position: absolute;
+  right: 1rem;
+  top: 40vh;
+  img {
+    max-width: 3rem;
+  }
+}

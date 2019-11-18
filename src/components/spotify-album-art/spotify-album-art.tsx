@@ -8,6 +8,7 @@ import { CenteredBox } from "../common/centered-box"
 import { Album } from "./album/album"
 import "./styles.scss"
 import spotifyLogo from "src/icons/Spotify_Icon_RGB_Green.png"
+import rightArrow from "src/icons/right.svg"
 
 interface Props {
   location?: any
@@ -22,6 +23,7 @@ interface State {
   selectedOptionId?: string
   album?: SpotifyApi.AlbumObjectFull
   playerUrl?: string
+  currentTracks: number
 }
 
 class AlbumArt extends React.Component<Props, State> {
@@ -30,7 +32,8 @@ class AlbumArt extends React.Component<Props, State> {
   public constructor(props: Props) {
     super(props)
     this.state = {
-      authorized: false
+      authorized: false,
+      currentTracks: 0
     }
     this.spotify = new SpotifyWebApi()
   }
@@ -71,7 +74,13 @@ class AlbumArt extends React.Component<Props, State> {
             </CenteredBox>
           ) : (
             <div className="row mx-0 justify-content-center">
-              {this.state.selectedPlaylist.tracks.items.map(item => (
+              <a
+                className="next-tracks-arrow"
+                onClick={() => this.setState((prev: State) => ({ ...prev, currentTracks: prev.currentTracks + 30 }))}
+              >
+                <img src={rightArrow} />
+              </a>
+              {this.state.selectedPlaylist.tracks.items.slice(this.state.currentTracks, this.state.currentTracks + 30).map(item => (
                 <Album track={item.track} key={item.track.id} getAlbum={this.getAlbum} updatePlayer={this.updatePlayer} />
               ))}
               <iframe
