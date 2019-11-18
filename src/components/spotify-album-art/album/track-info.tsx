@@ -1,10 +1,11 @@
-import * as React from "react";
+import * as React from "react"
 
 interface Props {
-  track: SpotifyApi.TrackObjectFull;
+  updatePlayer: (uri: string) => void
+  track: SpotifyApi.TrackObjectFull
 }
 
-export const TrackInfo: React.FunctionComponent<Props> = ({ track }) => (
+export const TrackInfo: React.FunctionComponent<Props> = ({ track, updatePlayer }) => (
   <div className="track-info">
     <div className="track-info-data">
       <p>
@@ -18,12 +19,14 @@ export const TrackInfo: React.FunctionComponent<Props> = ({ track }) => (
         <strong>album: </strong>
         {track.album.name}
       </p>
-      <a href={track.uri}>Open in Spotify</a>
+      <div className="spotify-link" onClick={() => updatePlayer(track.uri)}>
+        Open in Spotify
+      </div>
     </div>
   </div>
-);
+)
 
 function mapArtists(artists: SpotifyApi.ArtistObjectSimplified[]) {
-  const names = artists.map(a => a.name);
-  return names.join(" - ");
+  const names = artists.map(a => a.name)
+  return names.join(" - ")
 }

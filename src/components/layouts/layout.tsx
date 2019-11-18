@@ -14,7 +14,7 @@ const Layout: React.FunctionComponent<Props> = ({ children, noMainContent, conta
     <div className="site-container">
       <TopNav />
       <div className="content-wrap">
-        <div className={containerClass ? containerClass : "container"}>
+        <div className={containerClass ? containerClass : "container"} id="center-container">
           {noMainContent ? (
             children
           ) : (

@@ -1,18 +1,20 @@
 import * as React from "react"
 
 interface Props {
+  updatePlayer: (uri: string) => void
   album: SpotifyApi.AlbumObjectFull
 }
 
-export const AlbumInfo: React.FunctionComponent<Props> = ({ album }) => (
+export const AlbumInfo: React.FunctionComponent<Props> = ({ album, updatePlayer }) => (
   <div className="album-info">
-    <a href={album.uri}>
+    <div className="spotify-link" onClick={() => updatePlayer(album.uri)}>
       <h4>{album.name}</h4>
-    </a>
+    </div>
     {album.tracks.items.map((track, i) => (
       <p className="album-info__track" key={track.id}>
-        <strong>{i + 1}</strong>
-        <a href={track.uri}>{track.name}</a>
+        <div className="spotify-link" onClick={() => updatePlayer(track.uri)}>
+          {track.name}
+        </div>
       </p>
     ))}
   </div>

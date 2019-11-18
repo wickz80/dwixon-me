@@ -22,7 +22,7 @@ const TopNav: React.FunctionComponent = () => (
           <NavItem path="/" name="home" />
           <NavItem path="/about" name="about" />
           <NavItem path="/archive" name="archive" />
-          <NavItem path="/spotify" name="spotify" />
+          <NavItem path="/spotify" name="spotify" out={true} />
         </ul>
       </div>
     </nav>

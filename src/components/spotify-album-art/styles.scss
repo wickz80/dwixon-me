@@ -1,3 +1,5 @@
+@import "../layouts/styles/_imports.scss";
+
 .album {
   background: #000000;
   border-radius: 0.3rem;
@@ -7,6 +9,8 @@
   color: black !important;
   box-shadow: 3px 3px 8px black;
   transform-style: preserve-3d;
+  border: 1px solid rgba(199, 199, 199, 0.5);
+  padding: 0px;
 }
 
 .album:hover {
@@ -32,31 +36,34 @@
 
 .album-image {
   border-radius: 0.3rem;
-  display: block;
+  max-height: 100%;
+  max-width: 100%;
   margin-right: 1px;
 }
 
-@media only screen and (min-width: 200px) {
-  .album-image {
-    max-width: calc(90vw);
+@include media-breakpoint-up(xs) {
+  .container.nomax.tiled {
+    perspective: 50px;
   }
 }
-
-@media only screen and (min-width: 600px) {
-  .album-image {
-    max-width: calc(90vw / 3);
+@include media-breakpoint-up(sm) {
+  .container.nomax.tiled {
+    perspective: 25px;
   }
 }
-
-@media only screen and (min-width: 1000px) {
-  .album-image {
-    max-width: calc(90vw / 4);
+@include media-breakpoint-up(md) {
+  .container.nomax.tiled {
+    perspective: 15px;
   }
 }
-
-@media only screen and (min-width: 1400px) {
-  .album-image {
-    max-width: calc(90vw / 6);
+@include media-breakpoint-up(lg) {
+  .container.nomax.tiled {
+    perspective: 5px;
+  }
+}
+@include media-breakpoint-up(xl) {
+  .container.nomax.tiled {
+    perspective: 5px;
   }
 }
 
@@ -102,22 +109,26 @@
   .ReactModal__Content {
     bottom: 10px !important;
   }
+
+  .container.nomax {
+    perspective: 5px;
+  }
 }
 
 .ReactModal__Overlay {
-  z-index: 10;
+  z-index: 5;
   max-width: 99vw;
+  margin-bottom: 80px;
+  margin-top: 6vh;
 }
 
 .album-info {
-  background: #b7b7caab;
+  background: #f5f5f5cc;
   padding: 1rem;
+  box-shadow: 3px 3px 8px black;
   border-radius: 0.2rem;
   h4 {
     padding-bottom: 0.5rem;
-  }
-  a {
-    color: black;
   }
 }
 
@@ -125,13 +136,12 @@
   strong {
     padding-right: 1rem;
   }
-  a {
-    text-align: right;
-  }
 }
 
 .album-focused-image {
-  border-radius: 0.2rem;
+  border-radius: 0.5rem;
+  box-shadow: 3px 3px 8px black;
+  border: 1px solid rgba(199, 199, 199, 0.5);
 }
 
 .container.nomax {
@@ -143,5 +153,17 @@
   background: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3) 10px), url("../../resources/concrete.jpg");
 }
 
-.content-wrap {
+.spotify-link {
+  color: #3b3b3b !important;
+}
+.spotify-link:hover {
+  text-decoration: underline !important;
+  cursor: pointer;
+}
+
+.spotify-mini-player {
+  bottom: 0px;
+  position: sticky;
+  width: 98vw;
+  z-index: 15;
 }

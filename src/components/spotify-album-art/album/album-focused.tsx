@@ -6,6 +6,7 @@ interface Props {
   track: SpotifyApi.TrackObjectFull
   open: boolean
   getAlbum: (id: string) => Promise<SpotifyApi.AlbumObjectFull | void>
+  updatePlayer: (uri: string) => void
   close: () => void
 }
 
@@ -29,11 +30,13 @@ export class AlbumFocused extends React.Component<Props, State> {
     console.log(this.state)
     return (
       <Modal isOpen={this.props.open} shouldCloseOnEsc={true} onRequestClose={this.props.close}>
-        <div className="row">
+        <div className="row mx-0">
           <div className="col-12 col-md-6 album-focused art">
             <img className="album-focused-image" src={this.props.track.album.images[0].url} />
           </div>
-          <div className="col-12 col-md-6 album-focused tracklist">{this.state.album && <AlbumInfo album={this.state.album} />}</div>
+          <div className="col-12 col-md-6 album-focused tracklist">
+            {this.state.album && <AlbumInfo album={this.state.album} updatePlayer={this.props.updatePlayer} />}
+          </div>
         </div>
       </Modal>
     )

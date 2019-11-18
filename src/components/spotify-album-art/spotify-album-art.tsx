@@ -20,6 +20,7 @@ interface State {
   selectedPlaylist?: SpotifyApi.SinglePlaylistResponse
   selectedOptionId?: string
   album?: SpotifyApi.AlbumObjectFull
+  playerUrl?: string
 }
 
 class AlbumArt extends React.Component<Props, State> {
@@ -51,7 +52,7 @@ class AlbumArt extends React.Component<Props, State> {
       >
         <SEO title="album art generator" />
         <div
-          className="row"
+          className="row mx-0"
           style={{
             justifyContent: "center"
           }}
@@ -67,15 +68,37 @@ class AlbumArt extends React.Component<Props, State> {
               {this.state.playlists && <PlaylistsSelector playlists={this.state.playlists} handleSelection={this.handleSelection} />}
             </CenteredBox>
           ) : (
-            <>
+            <div className="row mx-0 justify-content-center">
               {this.state.selectedPlaylist.tracks.items.map(item => (
-                <Album track={item.track} key={item.track.id} getAlbum={this.getAlbum} />
+                <Album track={item.track} key={item.track.id} getAlbum={this.getAlbum} updatePlayer={this.updatePlayer} />
               ))}
-            </>
+              <iframe
+                src={this.state.playerUrl ? this.state.playerUrl : this.parseSpotifyUri(this.state.selectedPlaylist.uri)}
+                width="300"
+                className="spotify-mini-player"
+                height="80"
+                frameBorder="0"
+                allowTransparency={true}
+                allow="encrypted-media"
+              />
+            </div>
           )}
         </div>
       </Layout>
     )
+  }
+
+  private parseSpotifyUri = (spotifyUri: string) => {
+    const split = spotifyUri.split(":")
+    const type = split[1]
+    const id = split[2]
+    return `https://open.spotify.com/embed/${type}/${id}`
+  }
+
+  private updatePlayer = (spotifyUri: string) => {
+    this.setState({
+      playerUrl: this.parseSpotifyUri(spotifyUri)
+    })
   }
 
   private getAlbum = (id: string) => {
