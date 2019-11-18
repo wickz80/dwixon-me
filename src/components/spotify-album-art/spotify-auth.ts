@@ -12,7 +12,7 @@ export class SpotifyAuth {
     // params.append("client_secret", clientSecret)
     params.append("response_type", "token")
     params.append("redirect_uri", redirect)
-    params.append("scope", "playlist-read-collaborative playlist-read-private")
+    params.append("scope", "playlist-read-collaborative playlist-read-private user-modify-playback-state")
 
     return endpoint + params.toString()
   }

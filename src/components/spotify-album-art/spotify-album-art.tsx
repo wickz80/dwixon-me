@@ -7,6 +7,7 @@ import { PlaylistsSelector } from "./playlists-selector"
 import { CenteredBox } from "../common/centered-box"
 import { Album } from "./album/album"
 import "./styles.scss"
+import spotifyLogo from "src/icons/Spotify_Icon_RGB_Green.png"
 
 interface Props {
   location?: any
@@ -59,6 +60,7 @@ class AlbumArt extends React.Component<Props, State> {
         >
           {!this.state.selectedPlaylist ? (
             <CenteredBox>
+              <img className="spotify-icon" src={spotifyLogo} />
               <h5>select a playlist to tile album art</h5>
               {!this.state.authorized && (
                 <a href={this.state.authorizationLink}>
@@ -98,6 +100,9 @@ class AlbumArt extends React.Component<Props, State> {
   private updatePlayer = (spotifyUri: string) => {
     this.setState({
       playerUrl: this.parseSpotifyUri(spotifyUri)
+    })
+    this.spotify.play({
+      uris: [spotifyUri]
     })
   }
 

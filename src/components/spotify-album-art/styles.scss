@@ -1,20 +1,20 @@
 @import "../layouts/styles/_imports.scss";
 
 .album {
-  background: #000000;
   border-radius: 0.3rem;
-  margin: 0.7rem;
+  margin: 0.3rem;
   // border: 1px solid white;
   position: relative;
   color: black !important;
-  box-shadow: 3px 3px 8px black;
-  transform-style: preserve-3d;
-  border: 1px solid rgba(199, 199, 199, 0.5);
   padding: 0px;
+  transition: margin 0.5s ease;
 }
 
 .album:hover {
-  transform: rotateX(3deg);
+  transition: margin 0.5s ease;
+  margin: 0.3rem 1rem 1rem 1rem;
+  box-shadow: 3px 3px 8px black;
+  // margin: 1rem;
 }
 
 .centered-box {
@@ -85,7 +85,7 @@
 }
 
 .album:hover .track-info {
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .track-info-data {
@@ -130,11 +130,8 @@
   h4 {
     padding-bottom: 0.5rem;
   }
-}
-
-.album-info__track {
-  strong {
-    padding-right: 1rem;
+  * .content {
+    font-family: Georgia, "Times New Roman", Times, serif;
   }
 }
 
@@ -166,4 +163,19 @@
   position: sticky;
   width: 98vw;
   z-index: 15;
+}
+
+.album * * .metadata {
+  font-family: "Courier New", Courier, monospace;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.album * * .content {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.spotify-icon {
+  max-width: 5rem;
+  margin-bottom: 1rem;
 }
