@@ -1,8 +1,11 @@
-import * as React from "react"
+import * as React from "react";
+import { PlayButton } from "../player/play-button";
+import "./styles.scss";
 
 interface Props {
-  updatePlayer: (uri: string) => void
-  track: SpotifyApi.TrackObjectFull
+  updatePlayer: (uri: string) => void;
+  queueTrack: (uri: string) => void;
+  track: SpotifyApi.TrackObjectFull;
 }
 
 export const TrackInfo: React.FunctionComponent<Props> = ({ track, updatePlayer }) => (
@@ -23,14 +26,14 @@ export const TrackInfo: React.FunctionComponent<Props> = ({ track, updatePlayer 
         <span className="content">{track.album.name}</span>
       </p>
 
-      <div className="spotify-link" onClick={() => updatePlayer(track.uri)}>
-        Open in Spotify
+      <div className="album-play" onClick={() => updatePlayer(track.uri)}>
+        <PlayButton />
       </div>
     </div>
   </div>
-)
+);
 
 function mapArtists(artists: SpotifyApi.ArtistObjectSimplified[]) {
-  const names = artists.map(a => a.name)
-  return names.join(" - ")
+  const names = artists.map(a => a.name);
+  return names.join(" - ");
 }

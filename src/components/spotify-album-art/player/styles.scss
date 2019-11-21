@@ -1,0 +1,80 @@
+/** Now Playing **/
+
+.now-playing {
+  font-size: 1.5em;
+  margin-bottom: 0.2em;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  &.name {
+    font-size: medium;
+    position: absolute;
+    left: 1rem;
+  }
+  &.artist {
+    font-size: medium;
+    position: absolute;
+    right: 1rem;
+  }
+  &.status {
+  }
+  &.side {
+    margin-left: 5%;
+    width: 45%;
+  }
+}
+
+.progress {
+  border: 1px solid rgb(78, 78, 78);
+  height: 0.5rem;
+  border-radius: 0.2rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 3rem;
+  right: 3rem;
+}
+
+.progress__bar {
+  background-color: rgb(78, 78, 78);
+  height: 0.5rem;
+  transition: 1s width linear;
+}
+
+.hidden {
+  display: none;
+}
+
+/** Buttons **/
+
+.btn {
+  background-color: transparent;
+  border-radius: 2em;
+  border: 0.2em solid #1ecd97;
+  color: #1ecd97;
+  cursor: pointer;
+  font-size: 3vmin;
+  padding: 0.7em 1.5em;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+
+.btn:hover {
+  background: #1ecd97;
+  color: #333;
+}
+
+.btn--login {
+  margin: 0 auto;
+}
+
+/** Background **/
+
+.main-wrapper {
+  bottom: 0px;
+  position: sticky;
+  width: 100vw;
+  z-index: 15;
+  height: 5rem;
+  background: #f8f9fa;
+  padding: 0.6rem;
+}

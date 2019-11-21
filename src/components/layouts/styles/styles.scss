@@ -7,7 +7,7 @@
 }
 
 .container {
-  padding: 0px;
+  padding: 0px !important;
   flex-direction: row-reverse;
   margin-left: 0px !important;
 }
@@ -50,4 +50,8 @@ body {
   background: #f8f9fa;
   padding: 1rem;
   border-radius: 5px;
+}
+
+.main-content {
+  margin: 1rem;
 }

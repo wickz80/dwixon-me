@@ -22,6 +22,7 @@
   padding: 3rem;
   border-radius: 0.5rem;
   text-align: center;
+  margin: 1rem;
 }
 
 .react-tooltip-lite {
@@ -158,21 +159,18 @@
   cursor: pointer;
 }
 
-.spotify-mini-player {
-  bottom: 0px;
-  position: sticky;
-  width: 98vw;
-  z-index: 15;
-}
-
 .album * * .metadata {
   font-family: "Courier New", Courier, monospace;
   text-transform: uppercase;
   font-weight: 600;
+  line-height: 1;
+  font-size: small;
 }
 
 .album * * .content {
   font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: small;
+  line-height: 1;
 }
 
 .spotify-icon {
@@ -187,4 +185,33 @@
   img {
     max-width: 3rem;
   }
+}
+
+.player {
+  bottom: 0px;
+  position: sticky;
+  width: 98vw;
+  z-index: 15;
+  height: 5rem;
+  background: #f8f9fa;
+}
+
+.player-button {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  padding: 0.2rem;
+  background: #000;
+  position: absolute;
+  left: 1rem;
+  bottom: calc(50% - 1rem);
+}
+
+.player-button-icon {
+  margin-bottom: 50%;
+}
+
+.row.album-view {
+  margin: 1rem;
+  justify-content: center;
 }
