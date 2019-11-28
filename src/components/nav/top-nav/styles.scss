@@ -9,15 +9,42 @@
 }
 
 .navbar-icon {
-  max-height: 40px;
-  position: absolute;
   opacity: 0.6;
-  top: 8px;
-  left: 8px;
+  max-height: 2rem;
+  margin: 0.5rem;
+  &.ext {
+    opacity: 1;
+    max-height: 1.5rem;
+    margin-left: 0;
+  }
+}
+
+.nav-link {
+  display: unset !important;
+  color: rgb(112, 112, 112);
 }
 
 .nav-link:hover {
   transition: border-top-width 0.1s linear, margin-top 0.1s linear;
   border-top: solid 3px #6364ca;
   margin-top: -3px;
+  color: rgb(83, 83, 83);
+}
+
+.navbar-icon-links {
+  align-self: center;
+  justify-content: end;
+  padding: 0px;
+  margin: auto;
+  margin-right: 1rem;
+  text-align: end;
+}
+
+.nav-row {
+  width: calc(100vw);
+}
+
+.nav-container {
+  width: 100vw !important;
+  max-width: 100vw !important;
 }
