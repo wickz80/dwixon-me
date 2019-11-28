@@ -11,7 +11,7 @@ interface Props {
 export const TrackInfo: React.FunctionComponent<Props> = ({ track, updatePlayer }) => (
   <div className="track-info">
     <div className="track-info-data">
-      <p>
+      <p className="content">
         <span className="metadata">track: </span>
         <span className="content">{track.name}</span>
       </p>
@@ -21,7 +21,7 @@ export const TrackInfo: React.FunctionComponent<Props> = ({ track, updatePlayer 
         <span>{mapArtists(track.artists)}</span>
       </p>
 
-      <p>
+      <p className="content">
         <span className="metadata">album: </span>
         <span className="content">{track.album.name}</span>
       </p>

@@ -10,8 +10,6 @@ Personal blog, built on GatsbyJS. Converts MD to HTML and serves static pages. R
   - search
   - more article content
 - Fix bugs
-  - sidebar margin
-  - better spotify background
 - Spotify integration
   - Add artist bio details to Album focused view
   - Improve focused view
