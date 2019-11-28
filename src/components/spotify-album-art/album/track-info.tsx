@@ -1,14 +1,16 @@
 import * as React from "react";
-import { PlayButton } from "../player/play-button";
-import "./styles.scss";
+import { PlayButton } from "./play-button";
+import { QueueButton } from "./queue-button";
+import { FocusedViewButton } from "./focused-view-button";
 
 interface Props {
   updatePlayer: (uri: string) => void;
   queueTrack: (uri: string) => void;
+  openFocusedView: () => void;
   track: SpotifyApi.TrackObjectFull;
 }
 
-export const TrackInfo: React.FunctionComponent<Props> = ({ track, updatePlayer }) => (
+export const TrackInfo: React.FunctionComponent<Props> = ({ track, updatePlayer, queueTrack, openFocusedView }) => (
   <div className="track-info">
     <div className="track-info-data">
       <p className="content">
@@ -26,8 +28,16 @@ export const TrackInfo: React.FunctionComponent<Props> = ({ track, updatePlayer 
         <span className="content">{track.album.name}</span>
       </p>
 
-      <div className="album-play" onClick={() => updatePlayer(track.uri)}>
+      <div className="album-button play" onClick={() => updatePlayer(track.uri)}>
         <PlayButton />
+      </div>
+
+      <div className="album-button focused" onClick={() => openFocusedView()}>
+        <FocusedViewButton />
+      </div>
+
+      <div className="album-button queue" onClick={() => queueTrack(track.uri)}>
+        <QueueButton />
       </div>
     </div>
   </div>

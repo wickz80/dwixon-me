@@ -26,6 +26,7 @@ interface State {
   playerUrl?: string;
   currentTracks: number;
   nowPlaying?: SpotifyApi.CurrentlyPlayingResponse;
+  playQueue: string[];
 }
 
 class AlbumArt extends React.Component<Props, State> {
@@ -35,7 +36,8 @@ class AlbumArt extends React.Component<Props, State> {
     super(props);
     this.state = {
       authorized: false,
-      currentTracks: 0
+      currentTracks: 0,
+      playQueue: []
     };
     this.spotify = new SpotifyWebApi();
   }
@@ -89,14 +91,29 @@ class AlbumArt extends React.Component<Props, State> {
                 <img src={rightArrow} />
               </a>
               {this.state.selectedPlaylist.tracks.items.slice(this.state.currentTracks, this.state.currentTracks + 30).map(item => (
-                <Album track={item.track} key={item.track.id} getAlbum={this.getAlbum} updatePlayer={this.updatePlayer} />
+                <Album
+                  track={item.track}
+                  key={item.track.id}
+                  getAlbum={this.getAlbum}
+                  updatePlayer={this.updatePlayer}
+                  queueTrack={this.queueTrack}
+                />
               ))}
             </div>
           )}
-          {this.state.nowPlaying && this.state.selectedPlaylist && <Player nowPlaying={this.state.nowPlaying} />}
+          {this.state.selectedPlaylist && <Player nowPlaying={this.state.nowPlaying} />}
         </div>
       </Layout>
     );
+  }
+
+  public componentDidUpdate(): void {
+    if (this.state.nowPlaying && !this.state.nowPlaying.is_playing && this.state.playQueue.length > 0) {
+      const nextTrack = this.state.playQueue.pop();
+      this.spotify.play({
+        uris: [nextTrack!]
+      });
+    }
   }
 
   private getCurrentTrack = () => {
@@ -121,6 +138,10 @@ class AlbumArt extends React.Component<Props, State> {
     this.spotify.play({
       uris: [spotifyUri]
     });
+  };
+
+  private queueTrack = (spotifyUri: string) => {
+    this.state.playQueue.push(spotifyUri);
   };
 
   private getAlbum = (id: string) => {
