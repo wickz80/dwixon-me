@@ -1,8 +1,8 @@
-import React from "react";
-import "./styles.scss";
+import React from "react"
+import "./styles.scss"
 
 interface Props {
-  nowPlaying?: SpotifyApi.CurrentlyPlayingResponse;
+  nowPlaying?: SpotifyApi.CurrentlyPlayingResponse
 }
 
 export const Player: React.FunctionComponent<Props> = props => {
@@ -11,12 +11,12 @@ export const Player: React.FunctionComponent<Props> = props => {
       <div className="main-wrapper">
         <p>Nothing playing...</p>
       </div>
-    );
+    )
   }
-  const { item, progress_ms } = props.nowPlaying;
+  const { item, progress_ms } = props.nowPlaying
   const progressBarStyles = {
     width: (progress_ms * 100) / item.duration_ms + "%"
-  };
+  }
 
   return (
     <div className="main-wrapper">
@@ -26,5 +26,5 @@ export const Player: React.FunctionComponent<Props> = props => {
         <div className="progress__bar" style={progressBarStyles} />
       </div>
     </div>
-  );
-};
+  )
+}

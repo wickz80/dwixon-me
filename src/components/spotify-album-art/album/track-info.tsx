@@ -1,13 +1,13 @@
-import * as React from "react";
-import { PlayButton } from "./play-button";
-import { QueueButton } from "./queue-button";
-import { FocusedViewButton } from "./focused-view-button";
+import * as React from "react"
+import { PlayButton } from "./play-button"
+import { QueueButton } from "./queue-button"
+import { FocusedViewButton } from "./focused-view-button"
 
 interface Props {
-  updatePlayer: (uri: string) => void;
-  queueTrack: (uri: string) => void;
-  openFocusedView: () => void;
-  track: SpotifyApi.TrackObjectFull;
+  updatePlayer: (uri: string) => void
+  queueTrack: (uri: string) => void
+  openFocusedView: () => void
+  track: SpotifyApi.TrackObjectFull
 }
 
 export const TrackInfo: React.FunctionComponent<Props> = ({ track, updatePlayer, queueTrack, openFocusedView }) => (
@@ -41,9 +41,9 @@ export const TrackInfo: React.FunctionComponent<Props> = ({ track, updatePlayer,
       </div>
     </div>
   </div>
-);
+)
 
 function mapArtists(artists: SpotifyApi.ArtistObjectSimplified[]) {
-  const names = artists.map(a => a.name);
-  return names.join(" - ");
+  const names = artists.map(a => a.name)
+  return names.join(" - ")
 }

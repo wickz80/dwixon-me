@@ -1,8 +1,8 @@
-import * as React from "react";
+import * as React from "react"
 
 interface Props {
-  playlists: SpotifyApi.ListOfUsersPlaylistsResponse;
-  handleSelection: any;
+  playlists: SpotifyApi.ListOfUsersPlaylistsResponse
+  handleSelection: any
 }
 
 export const PlaylistsSelector: React.FunctionComponent<Props> = (props: Props) => (
@@ -16,4 +16,4 @@ export const PlaylistsSelector: React.FunctionComponent<Props> = (props: Props) 
       ))}
     </select>
   </>
-);
+)

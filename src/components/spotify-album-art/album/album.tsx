@@ -1,25 +1,25 @@
-import * as React from "react";
-import { TrackInfo } from "./track-info";
-import { AlbumFocused } from "./album-focused";
-import "./styles.scss";
+import * as React from "react"
+import { TrackInfo } from "./track-info"
+import { AlbumFocused } from "./album-focused"
+import "./styles.scss"
 
 interface Props {
-  track: SpotifyApi.TrackObjectFull;
-  getAlbum: (id: string) => Promise<SpotifyApi.AlbumObjectFull | void>;
-  updatePlayer: (uri: string) => void;
-  queueTrack: (uri: string) => void;
+  track: SpotifyApi.TrackObjectFull
+  getAlbum: (id: string) => Promise<SpotifyApi.AlbumObjectFull | void>
+  updatePlayer: (uri: string) => void
+  queueTrack: (uri: string) => void
 }
 
 interface State {
-  modalOpen: boolean;
+  modalOpen: boolean
 }
 
 export class Album extends React.Component<Props, State> {
   public constructor(props: Props) {
-    super(props);
+    super(props)
     this.state = {
       modalOpen: false
-    };
+    }
   }
 
   public render() {
@@ -42,12 +42,12 @@ export class Album extends React.Component<Props, State> {
           />
         )}
       </div>
-    );
+    )
   }
 
   private toggleModal = () => {
     this.setState((prev: State) => ({
       modalOpen: !prev.modalOpen
-    }));
-  };
+    }))
+  }
 }

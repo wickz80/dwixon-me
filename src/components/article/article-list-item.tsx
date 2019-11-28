@@ -1,11 +1,11 @@
-import * as React from "react";
-import { ArticleSubtitle } from "./article-subtitle";
+import * as React from "react"
+import { ArticleSubtitle } from "./article-subtitle"
 
 interface ArticleProps {
-  date: string;
-  path: string;
-  title: string;
-  author: string;
+  date: string
+  path: string
+  title: string
+  author: string
 }
 
 export const ArticleListItem: React.FunctionComponent<ArticleProps> = (props: ArticleProps) => (
@@ -23,6 +23,6 @@ export const ArticleListItem: React.FunctionComponent<ArticleProps> = (props: Ar
     <ArticleSubtitle author={props.author} date={props.date} />
     <hr />
   </div>
-);
+)
 
-export default ArticleListItem;
+export default ArticleListItem

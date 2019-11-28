@@ -1,7 +1,7 @@
-import * as React from "react";
+import * as React from "react"
 
 interface ImageProps {
-  src: string;
+  src: string
 }
 
 export const ArticleImage: React.FunctionComponent<ImageProps> = props => (
@@ -12,4 +12,4 @@ export const ArticleImage: React.FunctionComponent<ImageProps> = props => (
       paddingBottom: "10px"
     }}
   />
-);
+)

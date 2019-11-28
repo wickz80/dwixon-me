@@ -5,25 +5,25 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import { graphql, useStaticQuery } from "gatsby";
-import * as React from "react";
-import Helmet from "react-helmet";
+import { graphql, useStaticQuery } from "gatsby"
+import * as React from "react"
+import Helmet from "react-helmet"
 
 interface SEOProps {
-  title: string;
-  description?: string;
-  lang?: string;
-  meta?: any;
+  title: string
+  description?: string
+  lang?: string
+  meta?: any
 }
 
 interface SEOQueryResult {
   site: {
     siteMetadata: {
-      title: string;
-      description: string;
-      author: string;
-    };
-  };
+      title: string
+      description: string
+      author: string
+    }
+  }
 }
 
 const SEOQuery = graphql`
@@ -36,14 +36,14 @@ const SEOQuery = graphql`
       }
     }
   }
-`;
+`
 
 const SEO: React.FunctionComponent<SEOProps> = props => {
-  const data: SEOQueryResult = useStaticQuery(SEOQuery);
+  const data: SEOQueryResult = useStaticQuery(SEOQuery)
 
-  const description = props.description || data.site.siteMetadata.description;
-  const lang = props.lang || "en";
-  const meta = props.meta || [];
+  const description = props.description || data.site.siteMetadata.description
+  const lang = props.lang || "en"
+  const meta = props.meta || []
 
   return (
     // tslint:disable-next-line
@@ -86,7 +86,7 @@ const SEO: React.FunctionComponent<SEOProps> = props => {
         }
       ].concat(meta)}
     />
-  );
-};
+  )
+}
 
-export default SEO;
+export default SEO

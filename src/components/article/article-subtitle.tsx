@@ -1,9 +1,9 @@
-import React from "react";
-import LongDate from "../utils/long-date";
+import React from "react"
+import LongDate from "../utils/long-date"
 
 interface Props {
-  date: string;
-  author: string;
+  date: string
+  author: string
 }
 
 export const ArticleSubtitle = (props: Props) => (
@@ -14,4 +14,4 @@ export const ArticleSubtitle = (props: Props) => (
       <strong>{props.author}</strong>
     </i>
   </p>
-);
+)

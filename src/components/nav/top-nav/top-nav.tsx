@@ -1,11 +1,11 @@
-import * as React from "react";
-import "./styles.scss";
-import { Favicon } from "../../common/favicon";
-import { NavItem } from "./nav-item";
+import * as React from "react"
+import "./styles.scss"
+import { Favicon } from "../../common/favicon"
+import { NavItem } from "./nav-item"
 // tslint:disable-next-line
-const logo = require("src/icons/android-chrome-192x192.png");
-const li = require("src/icons/linkedin.png");
-const gh = require("src/icons/github.png");
+const logo = require("src/icons/android-chrome-192x192.png")
+const li = require("src/icons/linkedin.png")
+const gh = require("src/icons/github.png")
 
 const TopNav: React.FunctionComponent = () => (
   <header>
@@ -38,6 +38,6 @@ const TopNav: React.FunctionComponent = () => (
       </div>
     </nav>
   </header>
-);
+)
 
-export default TopNav;
+export default TopNav

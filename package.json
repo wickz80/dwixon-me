@@ -58,7 +58,12 @@
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "type-check": "tsc --noEmit",
-    "lint": "tslint --project .",
+    "lint": "tslint --project . --fix",
+    "prettier": "npx prettier src/**/*.tsx --write --config package.json",
     "deploy": "gatsby-plugin-s3 deploy"
+  },
+  "prettier": {
+    "trailingComma": "none",
+    "semi": false
   }
 }

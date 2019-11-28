@@ -1,11 +1,11 @@
-import * as React from "react";
-import { Link } from "gatsby";
+import * as React from "react"
+import { Link } from "gatsby"
 
 interface ArticleProps {
-  date: string;
-  path: string;
-  title: string;
-  author: string;
+  date: string
+  path: string
+  title: string
+  author: string
 }
 
 export const SidebarListItem: React.FunctionComponent<ArticleProps> = (props: ArticleProps) => (
@@ -34,6 +34,6 @@ export const SidebarListItem: React.FunctionComponent<ArticleProps> = (props: Ar
       {new Date(props.date).toLocaleDateString()}
     </p>
   </div>
-);
+)
 
-export default SidebarListItem;
+export default SidebarListItem

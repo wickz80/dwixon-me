@@ -1,10 +1,10 @@
-import * as React from "react";
-import Layout from "../components/layouts/layout";
-import SEO from "../components/utils/seo";
-import { graphql } from "gatsby";
-import { ArticleSubtitle } from "../components/article/article-subtitle";
-import { ArticleTitle } from "../components/article/article-title";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import * as React from "react"
+import Layout from "../components/layouts/layout"
+import SEO from "../components/utils/seo"
+import { graphql } from "gatsby"
+import { ArticleSubtitle } from "../components/article/article-subtitle"
+import { ArticleTitle } from "../components/article/article-title"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 export const queryArticles = graphql`
   query FeaturedArticleQuery {
@@ -23,34 +23,34 @@ export const queryArticles = graphql`
       }
     }
   }
-`;
+`
 
 export interface FeaturedArticleProps {
-  children: any;
+  children: any
   data: {
     allMdx: {
       edges: [
         {
           node: {
-            id: string;
-            body: string;
+            id: string
+            body: string
             frontmatter: {
-              date: string;
-              path: string;
-              title: string;
-              author: string;
-            };
-          };
+              date: string
+              path: string
+              title: string
+              author: string
+            }
+          }
         }
-      ];
-    };
-  };
+      ]
+    }
+  }
 }
 
 const IndexPage: React.FunctionComponent<FeaturedArticleProps> = ({ data }) => {
-  const { edges } = data.allMdx;
-  const article = edges[0].node;
-  const { frontmatter } = article;
+  const { edges } = data.allMdx
+  const article = edges[0].node
+  const { frontmatter } = article
   return (
     <Layout>
       <SEO title={frontmatter.title} />
@@ -61,7 +61,7 @@ const IndexPage: React.FunctionComponent<FeaturedArticleProps> = ({ data }) => {
       </div>
       <MDXRenderer>{article.body}</MDXRenderer>
     </Layout>
-  );
-};
+  )
+}
 
-export default IndexPage;
+export default IndexPage

@@ -1,10 +1,10 @@
-import * as React from "react";
-import { Link } from "gatsby";
+import * as React from "react"
+import { Link } from "gatsby"
 
 interface Props {
-  name: string;
-  path: string;
-  out?: boolean;
+  name: string
+  path: string
+  out?: boolean
 }
 
 export const NavItem = (props: Props) => (
@@ -19,4 +19,4 @@ export const NavItem = (props: Props) => (
       </Link>
     )}
   </>
-);
+)
