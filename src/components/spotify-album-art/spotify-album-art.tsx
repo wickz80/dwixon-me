@@ -8,8 +8,9 @@ import { CenteredBox } from "../common/centered-box"
 import { Album } from "./album/album"
 import "./styles.scss"
 import spotifyLogo from "src/icons/Spotify_Icon_RGB_Green.png"
-import rightArrow from "src/icons/right.svg"
 import { Player } from "./player/player"
+
+const ALBUM_TILES_PER_PAGE = 30
 
 interface Props {
   location?: any
@@ -84,13 +85,7 @@ class AlbumArt extends React.Component<Props, State> {
             </CenteredBox>
           ) : (
             <div className="row album-view">
-              <a
-                className="next-tracks-arrow"
-                onClick={() => this.setState((prev: State) => ({ ...prev, currentTracks: prev.currentTracks + 30 }))}
-              >
-                <img src={rightArrow} />
-              </a>
-              {this.state.selectedPlaylist.tracks.items.slice(this.state.currentTracks, this.state.currentTracks + 30).map(item => (
+              {this.state.selectedPlaylist.tracks.items.slice(0, ALBUM_TILES_PER_PAGE).map(item => (
                 <Album
                   track={item.track}
                   key={item.track.id}

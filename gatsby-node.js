@@ -11,7 +11,7 @@ exports.createPages = async ({ actions, graphql }) => {
             frontmatter {
               title
               path
-              date(formatString: "MMMM DD, YYYY")
+              date
               author
             }
             body

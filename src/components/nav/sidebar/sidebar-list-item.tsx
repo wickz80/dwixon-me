@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import LongDate from "src/components/utils/long-date"
 
 interface ArticleProps {
   date: string
@@ -31,7 +32,7 @@ export const SidebarListItem: React.FunctionComponent<ArticleProps> = (props: Ar
         fontWeight: 600
       }}
     >
-      {new Date(props.date).toLocaleDateString()}
+      {LongDate(props.date)}
     </p>
   </div>
 )

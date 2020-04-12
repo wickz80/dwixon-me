@@ -1,5 +1,5 @@
 ---
-title: Building dwixon.me
+title: building dwixon.me
 date: 2019-10-14
 path: /building-dwixon
 author: Dave Wixon

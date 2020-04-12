@@ -2,10 +2,11 @@ import * as React from "react"
 import "./styles.scss"
 import { Favicon } from "../../common/favicon"
 import { NavItem } from "./nav-item"
-// tslint:disable-next-line
+// tslint:disable
 const logo = require("src/icons/android-chrome-192x192.png")
 const li = require("src/icons/linkedin.png")
 const gh = require("src/icons/github.png")
+// tslint:enable
 
 const TopNav: React.FunctionComponent = () => (
   <header>

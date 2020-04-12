@@ -45,8 +45,11 @@ export interface ArchiveProps {
 const Archive: React.FunctionComponent<ArchiveProps> = ({ data }: ArchiveProps) => (
   <Layout>
     <SEO title="archive" />
-    {data.allMdx.edges.map(article => (
-      <ArticleListItem {...article.node.frontmatter} key={article.node.id} />
+    {data.allMdx.edges.map((article, i) => (
+      <>
+        <ArticleListItem {...article.node.frontmatter} key={article.node.id} />
+        {i < data.allMdx.edges.length - 1 && <hr />}
+      </>
     ))}
   </Layout>
 )
